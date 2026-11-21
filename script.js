@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // State Management with Ranveer & Shanaya Default Request Data
   const state = {
-    theme: 'emerald-gold',
+    theme: 'crimson-gold',
     openingExperience: 'call',
     grandTitle: 'Grand Ballroom Starlight Wedding',
     bride: 'Shanaya',
@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const vaultSection = document.getElementById('vaultSection');
   const ringsClasp = document.getElementById('ringsClasp');
+  const waxInitials = document.getElementById('waxInitials');
+  const waxSealContainer = document.getElementById('waxSealContainer');
+  const waxSealStamp = document.getElementById('waxSealStamp');
   const doorLeft = document.getElementById('doorLeft');
   const doorRight = document.getElementById('doorRight');
   const skipOpeningBtn = document.getElementById('skipOpeningBtn');
@@ -243,22 +246,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function playWaxCrackSound() {
+    if (!state.soundEnabled) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(160, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(30, ctx.currentTime + 0.14);
+      gain.gain.setValueAtTime(0.28, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.14);
+    } catch(e) {}
+  }
+
   /* ==========================================================
-     OPENING EXPERIENCE: 3D DOORS VS INCOMING CALL
+     OPENING EXPERIENCE: 3D DOORS / WAX SEAL / INCOMING CALL
      ========================================================== */
   function openVaultDoors() {
     if (state.doorsOpened) return;
     state.doorsOpened = true;
+    playWaxCrackSound();
     vaultSection.classList.add('doors-open');
     playGoldenChime();
     startMusic();
 
+    let confettiColors = ['#d4af37', '#fdfbf7', '#ffd700', '#2d4a3e'];
+    if (state.theme === 'crimson-gold') confettiColors = ['#8a1220', '#d4af37', '#ffd700', '#f7e096'];
+    if (state.theme === 'silver-diamond') confettiColors = ['#ffffff', '#cbd5e1', '#94a3b8', '#e2e8f0'];
+
     if (window.confetti) {
       window.confetti({
-        particleCount: 40,
-        spread: 65,
+        particleCount: 45,
+        spread: 68,
         origin: { y: 0.4 },
-        colors: ['#d4af37', '#fdfbf7', '#ffd700', '#2d4a3e']
+        colors: confettiColors
       });
     }
 
@@ -268,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (ringsClasp) ringsClasp.addEventListener('click', openVaultDoors);
+  if (waxSealStamp) waxSealStamp.addEventListener('click', openVaultDoors);
   if (doorLeft) doorLeft.addEventListener('click', openVaultDoors);
   if (doorRight) doorRight.addEventListener('click', openVaultDoors);
   if (skipOpeningBtn) skipOpeningBtn.addEventListener('click', openVaultDoors);
@@ -676,6 +704,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Quill names
     if (quillTextNames) quillTextNames.textContent = `${state.groom} & ${state.bride}`;
 
+    // Wax Seal Monogram initials
+    if (waxInitials) {
+      const gInit = state.groom ? state.groom.trim()[0] : 'R';
+      const bInit = state.bride ? state.bride.trim()[0] : 'S';
+      waxInitials.textContent = `${gInit} & ${bInit}`;
+    }
+
     // RSVP Guest
     if (displayGuestSalutation) {
       displayGuestSalutation.textContent = state.guestName 
@@ -817,7 +852,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const ambientCanvas = document.getElementById('ambientCanvas');
   let ambCtx = null;
   let particles = [];
-  const petalEmojis = ['🌸', '✨', '🌹', '🌿'];
+  function getThemeEmojis() {
+    if (state.theme === 'crimson-gold') return ['🌹', '✨', '🥀', '💛', '🌸'];
+    if (state.theme === 'silver-diamond') return ['💎', '✨', '❄️', '🤍', '⭐'];
+    return ['🌸', '✨', '🌹', '🌿'];
+  }
 
   function initAmbientParticles() {
     if (!ambientCanvas) return;
@@ -825,12 +864,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ambientCanvas.height = window.innerHeight;
     ambCtx = ambientCanvas.getContext('2d');
     particles = [];
+    const activeEmojis = getThemeEmojis();
 
     for (let i = 0; i < 28; i++) {
       particles.push({
         x: Math.random() * ambientCanvas.width,
         y: Math.random() * ambientCanvas.height,
-        emoji: petalEmojis[Math.floor(Math.random() * petalEmojis.length)],
+        emoji: activeEmojis[Math.floor(Math.random() * activeEmojis.length)],
         size: Math.random() * 10 + 12,
         speedY: Math.random() * 0.7 + 0.3,
         speedX: (Math.random() - 0.5) * 0.5,

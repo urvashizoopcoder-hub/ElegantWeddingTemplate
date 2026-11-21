@@ -17,7 +17,7 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-emerald-gold standalone-invite">
+<body class="theme-crimson-gold standalone-invite">
   <script>
     if (window.self !== window.top) {
       document.body.classList.add('in-iframe');
@@ -178,10 +178,11 @@
 
             </div>
 
-            <!-- THE 3D EMBOSSED DOUBLE DOORS -->
+            <!-- THE 3D EMBOSSED DOUBLE DOORS (WITH BOTANICAL & FLORAL ROSES) -->
             <div class="door-leaf door-left" id="doorLeft">
               <div class="door-surface door-embossed-leaves">
                 <div class="leaf-emboss-pattern"></div>
+                <div class="rose-emboss-pattern"></div>
                 <div class="door-inner-bevel"></div>
                 <div class="door-seam-glow"></div>
               </div>
@@ -190,21 +191,35 @@
             <div class="door-leaf door-right" id="doorRight">
               <div class="door-surface door-embossed-leaves">
                 <div class="leaf-emboss-pattern"></div>
+                <div class="rose-emboss-pattern"></div>
                 <div class="door-inner-bevel"></div>
                 <div class="door-seam-glow"></div>
               </div>
             </div>
 
-            <!-- ORNATE SCALLOPED "TAP TO OPEN" GOLD CREST -->
+            <!-- ORNATE SCALLOPED CREST & 3D MONOGRAM WAX SEAL -->
             <div class="rings-clasp-container zareqia-crest" id="ringsClasp" title="Click to unlock & open the invitation">
-              <div class="crest-rope-tassel"></div>
-              <div class="ornate-scalloped-tag">
-                <div class="tag-inner-border">
-                  <div class="tag-flourish">❦</div>
-                  <div class="tag-text">TAP TO OPEN</div>
-                  <div class="tag-stars">✦ ✦ ✦</div>
+              <!-- 3D Monogram Wax Seal Stamp (From Webgency Video) -->
+              <div class="wax-seal-container" id="waxSealContainer">
+                <div class="wax-seal-stamp" id="waxSealStamp">
+                  <div class="wax-seal-rim">
+                    <span class="wax-seal-initials" id="waxInitials">R &amp; S</span>
+                  </div>
                 </div>
               </div>
+
+              <!-- Ornate Scalloped Tag (Zareqia Video Style) -->
+              <div class="scalloped-crest-wrap" id="scallopedCrestWrap">
+                <div class="crest-rope-tassel"></div>
+                <div class="ornate-scalloped-tag">
+                  <div class="tag-inner-border">
+                    <div class="tag-flourish">❦</div>
+                    <div class="tag-text">TAP TO OPEN</div>
+                    <div class="tag-stars">✦ ✦ ✦</div>
+                  </div>
+                </div>
+              </div>
+
               <div class="rings-tap-hint">
                 <span class="tap-hand">✨</span>
                 <span class="tap-label">Touch to Reveal</span>

@@ -220,7 +220,7 @@
     });
 
     return {
-      theme: selectedThemeInput.value || 'emerald-gold',
+      theme: selectedThemeInput.value || 'crimson-gold',
       openingExperience: openingExperienceSelect.value || 'call',
       grandTitle: (f.grand_title.value || 'Grand Ballroom Starlight Wedding').trim(),
       groom: (f.groom_name.value || 'Ranveer').trim(),

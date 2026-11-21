@@ -48,7 +48,15 @@
     
     <label>Color Palette Theme:</label>
     <div class="theme-swatches-grid" id="themeGrid">
-      <div class="theme-pill-btn active" data-theme="emerald-gold">
+      <div class="theme-pill-btn active" data-theme="crimson-gold">
+        <div class="color-dots"><span class="color-dot" style="background:#78131e"></span><span class="color-dot" style="background:#d4af37"></span></div>
+        <span>Royal Crimson &amp; Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="silver-diamond">
+        <div class="color-dots"><span class="color-dot" style="background:#202836"></span><span class="color-dot" style="background:#e2e8f0"></span></div>
+        <span>Silver &amp; Diamond</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="emerald-gold">
         <div class="color-dots"><span class="color-dot" style="background:#2d4a3e"></span><span class="color-dot" style="background:#d4af37"></span></div>
         <span>Emerald &amp; Gold</span>
       </div>
@@ -69,13 +77,14 @@
         <span>Terracotta &amp; Marigold</span>
       </div>
     </div>
-    <input type="hidden" name="color_theme" id="selectedTheme" value="emerald-gold">
+    <input type="hidden" name="color_theme" id="selectedTheme" value="crimson-gold">
 
     <div class="row2">
       <div class="option-select-row">
         <label>Opening Experience</label>
         <select name="opening_experience" id="openingExperienceSelect">
-          <option value="call" selected>📞 Incoming Royal Wedding Call</option>
+          <option value="call" selected>📞 Incoming Royal Wedding Call (Slide to Answer)</option>
+          <option value="envelope">💌 3D Monogram Wax Seal Envelope (Instagram Video)</option>
           <option value="doors">🚪 3D Royal Vault Opening Doors</option>
         </select>
       </div>
