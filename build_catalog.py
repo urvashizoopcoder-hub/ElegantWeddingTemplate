@@ -21,8 +21,8 @@ for tid in range(1, 61):
     opening_label = t['opening'].capitalize()
     
     direct_url = f"{GH_BASE}/template-{tid}.html"
-    relative_url = f"template-{tid}.html"
-    editor_url = f"index.html?template={tid}"
+    customizer_url = f"template-{tid}.html"
+    invite_url = f"template-{tid}-invite.html"
     
     card = f'''
     <div class="template-card" data-collection="{col}" data-tid="{tid}" data-title="{t['name'].lower()}" data-scratch="{t['scratch']}">
@@ -44,8 +44,8 @@ for tid in range(1, 61):
         </div>
       </div>
       <div class="card-actions">
-        <a href="{relative_url}" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
-        <a href="{editor_url}" class="btn btn-secondary">✏️ Customize</a>
+        <a href="{customizer_url}" class="btn btn-primary" target="_blank" rel="noopener">✏️ Customize Form</a>
+        <a href="{invite_url}" class="btn btn-secondary" target="_blank" rel="noopener">👁️ Live 3D Invite</a>
         <button class="btn btn-copy" onclick="copyLink('{direct_url}', this)" title="Copy separate public URL">📋 Copy URL</button>
       </div>
     </div>

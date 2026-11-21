@@ -334,9 +334,9 @@
     });
 
     return {
-      templateId: f.template_id ? parseInt(f.template_id.value || '1', 10) : 1,
-      collection: f.template_collection ? f.template_collection.value : 'royal',
-      scratchType: f.scratch_type ? f.scratch_type.value : 'gold-leaf',
+      templateId: f.template_id ? parseInt(f.template_id.value || '1', 10) : (window.PAGE_TEMPLATE_ID || 1),
+      collection: f.template_collection ? f.template_collection.value : (window.PAGE_TEMPLATE_COLLECTION || 'royal'),
+      scratchType: f.scratch_type ? f.scratch_type.value : (window.PAGE_TEMPLATE_SCRATCH || 'gold-leaf'),
       theme: selectedThemeInput.value || 'crimson-gold',
       openingExperience: openingExperienceSelect.value || 'call',
       grandTitle: (f.grand_title.value || 'Grand Ballroom Starlight Wedding').trim(),
@@ -521,16 +521,37 @@
   // Initial Load
   loadCeremonies(DEFAULT_CEREMONIES);
 
-  // Check URL query param for ?template=X
-  try {
-    const urlParams = new URLSearchParams(window.location.search);
-    const qTemplate = urlParams.get('template');
-    if (qTemplate && TEMPLATES_60[qTemplate] && templateSelect) {
-      templateSelect.value = qTemplate;
-      updateTemplateUI(parseInt(qTemplate, 10));
+  // Template initialization (from window.PAGE_TEMPLATE_ID or ?template=X)
+  let activeTemplateId = window.PAGE_TEMPLATE_ID;
+  if (!activeTemplateId) {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const qTemplate = urlParams.get('template');
+      if (qTemplate) activeTemplateId = parseInt(qTemplate, 10);
+    } catch (e) {}
+  }
+
+  if (activeTemplateId && TEMPLATES_60[activeTemplateId]) {
+    const t = TEMPLATES_60[activeTemplateId];
+    if (form.elements.grand_title && (!form.elements.grand_title.value || form.elements.grand_title.value === 'Grand Ballroom Starlight Wedding')) {
+      form.elements.grand_title.value = `${t.name} · Royal Wedding`;
     }
-  } catch (e) {
-    console.warn("Could not parse query params", e);
+    if (scratchTypeSelect && t.scratch) {
+      scratchTypeSelect.value = t.scratch;
+    }
+    if (openingExperienceSelect && t.opening) {
+      openingExperienceSelect.value = t.opening;
+    }
+    if (t.theme && selectedThemeInput) {
+      selectedThemeInput.value = t.theme;
+      const themePills = document.querySelectorAll('.theme-pill-btn');
+      themePills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-theme') === t.theme);
+      });
+    }
+    if (iframe) {
+      iframe.src = `invite.html?template=${activeTemplateId}`;
+    }
   }
 
   if (iframe) {

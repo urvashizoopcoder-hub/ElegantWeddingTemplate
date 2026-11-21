@@ -69,13 +69,32 @@ TEMPLATES_60 = {
 }
 
 os.makedirs('templates', exist_ok=True)
+
+# Read base editor form (clean, with NO 60 template dropdown)
+with open('index.html', 'r', encoding='utf-8') as f:
+    base_editor_html = f.read()
+
+# Read base standalone invitation
 with open('invite.html', 'r', encoding='utf-8') as f:
-    base_html = f.read()
+    base_invite_html = f.read()
 
 count = 0
 for tid, t in TEMPLATES_60.items():
     col = t['collection']
-    config_script = f'''  <!-- Embedded Specific Template Configuration -->
+    
+    # Configuration to embed in the customizer page
+    editor_config = f'''  <!-- Template {tid} Dedicated Pre-configuration -->
+  <script>
+    window.PAGE_TEMPLATE_ID = {tid};
+    window.PAGE_TEMPLATE_NAME = "{t['name']}";
+    window.PAGE_TEMPLATE_COLLECTION = "{col}";
+    window.PAGE_TEMPLATE_SCRATCH = "{t['scratch']}";
+    window.PAGE_TEMPLATE_THEME = "{t['theme']}";
+    window.PAGE_TEMPLATE_OPENING = "{t['opening']}";
+  </script>'''
+
+    # Configuration to embed in standalone invite
+    invite_config = f'''  <!-- Embedded Specific Template Configuration -->
   <script>
     window.TEMPLATE_CONFIG = {{
       templateId: {tid},
@@ -88,23 +107,48 @@ for tid, t in TEMPLATES_60.items():
     }};
   </script>'''
 
-    # Root file: template-{tid}.html
-    page_html = base_html.replace(
-        '<title>Royal Wedding Invitation | Ranveer &amp; Shanaya</title>',
-        f'<title>Template {tid}: {t["name"]} | Royal Wedding Invitation</title>\n{config_script}'
+    # 1. Customizer Page for Template {tid}: template-{tid}.html
+    page_editor = base_editor_html.replace(
+        '<title>Customize Your Royal Wedding Invitation — Bespoke Studio</title>',
+        f'<title>Template {tid}: {t["name"]} · Customize Wedding Invitation</title>\n{editor_config}'
     )
-    with open(f'template-{tid}.html', 'w', encoding='utf-8') as f_out:
-        f_out.write(page_html)
+    
+    # Update brand header in customizer
+    old_brand = '''    <span class="brand__mono">❦</span>
+    <div>
+      <b>Royal Palace</b>
+      <small>Bespoke Wedding Invitation Studio</small>
+    </div>'''
+    new_brand = f'''    <span class="brand__mono">{t['icon']}</span>
+    <div>
+      <b>Template {tid}: {t['name']}</b>
+      <small>Bespoke 3D Wedding Invitation Studio · {col.capitalize()} Series</small>
+    </div>'''
+    page_editor = page_editor.replace(old_brand, new_brand)
 
-    # Subfolder file: templates/template-{tid}.html
-    sub_html = page_html.replace('href="style.css"', 'href="../style.css"')
-    sub_html = sub_html.replace('src="script.js"', 'src="../script.js"')
-    sub_html = sub_html.replace('src="assets/', 'src="../assets/')
-    sub_html = sub_html.replace('href="index.html"', 'href="../index.html"')
-    sub_html = sub_html.replace('href="templates.html"', 'href="../templates.html"')
+    # Set iframe src directly to this template
+    page_editor = page_editor.replace('src="invite.html"', f'src="invite.html?template={tid}"')
+
+    # Write root customizer: template-{tid}.html
+    with open(f'template-{tid}.html', 'w', encoding='utf-8') as f_out:
+        f_out.write(page_editor)
+
+    # Subfolder customizer: templates/template-{tid}.html
+    sub_editor = page_editor.replace('href="editor.css"', 'href="../editor.css"')
+    sub_editor = sub_editor.replace('src="editor.js"', 'src="../editor.js"')
+    sub_editor = sub_editor.replace('src="invite.html?template=', 'src="../invite.html?template=')
+    sub_editor = sub_editor.replace('src="assets/', 'src="../assets/')
     with open(f'templates/template-{tid}.html', 'w', encoding='utf-8') as f_sub:
-        f_sub.write(sub_html)
+        f_sub.write(sub_editor)
+
+    # 2. Standalone Direct Invitation Page for Template {tid}: template-{tid}-invite.html
+    page_invite = base_invite_html.replace(
+        '<title>Royal Wedding Invitation | Ranveer &amp; Shanaya</title>',
+        f'<title>Template {tid}: {t["name"]} | Royal Wedding Invitation</title>\n{invite_config}'
+    )
+    with open(f'template-{tid}-invite.html', 'w', encoding='utf-8') as f_inv:
+        f_inv.write(page_invite)
 
     count += 1
 
-print(f'Successfully built {count} standalone template files in root AND templates/ directory!')
+print(f'Successfully built {count} standalone template customizers and invites!')
