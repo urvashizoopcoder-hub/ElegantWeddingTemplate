@@ -1163,8 +1163,8 @@ html, body {
 .scratch-card-stage {
   position: relative;
   width: 100%;
-  max-width: 310px;
-  height: 190px;
+  max-width: 315px;
+  height: 215px;
   margin: 0 auto 16px;
   border-radius: 20px;
   overflow: hidden;
@@ -1183,9 +1183,42 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 10px 14px;
   text-align: center;
   z-index: 1;
+}
+
+/* Revealed Couple Portrait Avatar (Mandatory Requirement) */
+.revealed-couple-photo-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 2px;
+}
+.revealed-couple-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4af37;
+  box-shadow: 0 4px 10px rgba(180, 130, 30, 0.35);
+  animation: revealPhotoZoom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes revealPhotoZoom {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.photo-glow-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.7);
+  animation: spinSlow 14s linear infinite;
+  pointer-events: none;
+}
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 .sparkle-burst-icon {
   font-size: 18px;
@@ -2161,4 +2194,45 @@ body.in-iframe .floating-inviter-dock { display: none !important; }
 .theme-crimson-gold .arched-date-card {
   border-color: rgba(212, 175, 55, 0.65);
   box-shadow: 0 10px 30px rgba(70, 10, 16, 0.25), 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* ==========================================================
+   QR CODE SHARING SECTION (MOBILE & DESKTOP)
+   ========================================================== */
+.qr-share-section {
+  margin: 14px 0 16px;
+  background: #fdfaf6;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(120, 80, 20, 0.08);
+}
+.qr-card-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.qr-code-canvas-wrap {
+  flex: none;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.dispatch-qr-img {
+  display: block;
+  border-radius: 6px;
+}
+.qr-meta-text strong {
+  display: block;
+  font-size: 13px;
+  color: #3b2c1d;
+  margin-bottom: 3px;
+}
+.qr-meta-text p {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #7d6b56;
+  margin: 0;
 }

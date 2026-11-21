@@ -646,3 +646,43 @@ body.v-preview .phone {
   display: grid;
   gap: 10px;
 }
+
+/* 60 TEMPLATES & STORYTELLING CONCEPT BADGE */
+.template-concept-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fdfaf6;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 10px 0 16px;
+  box-shadow: 0 4px 12px rgba(120, 80, 20, 0.06);
+}
+.concept-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+.concept-details strong {
+  display: block;
+  font-size: 13px;
+  color: #3b2c1d;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.concept-details p {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #7b6238;
+  margin: 0;
+}
+optgroup {
+  font-weight: 700;
+  color: #831843;
+  background: #fff;
+}
+option {
+  font-weight: 400;
+  color: #2b1f16;
+  padding: 6px;
+}

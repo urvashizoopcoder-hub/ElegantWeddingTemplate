@@ -302,8 +302,13 @@
 
             <!-- Scratch-to-Reveal Card Stage -->
             <div class="scratch-card-stage" id="scratchStage" title="Tap or drag to scratch and reveal date">
-              <!-- Underneath Concealed Wedding Date Card -->
+              <!-- Underneath Concealed Wedding Date Card (Revealed only after scratch) -->
               <div class="underneath-date-card" id="revealedDateCard">
+                <!-- Revealed Couple Portrait Avatar (Mandatory Requirement) -->
+                <div class="revealed-couple-photo-wrap" id="scratchCouplePhotoWrap">
+                  <img src="assets/portal_arch_clean.png" alt="Couple" class="revealed-couple-img" id="scratchCoupleImg">
+                  <div class="photo-glow-ring"></div>
+                </div>
                 <div class="sparkle-burst-icon">✨ 💍 ✨</div>
                 <div class="revealed-lead">WE ARE CELEBRATING</div>
                 <h3 class="revealed-date-title" id="displayFullDateLine">November 25, 2027</h3>
@@ -313,8 +318,8 @@
                 <div class="revealed-venue-micro" id="scratchVenueName">The Taj Mahal Palace Ballroom, Mumbai</div>
               </div>
 
-              <!-- Interactive Scratch Foil Canvas Layer -->
-              <canvas class="scratch-foil-canvas" id="scratchCanvas" width="310" height="190"></canvas>
+              <!-- Interactive Scratch Foil Canvas Layer (10 Styles supported) -->
+              <canvas class="scratch-foil-canvas" id="scratchCanvas" width="315" height="215"></canvas>
 
               <!-- Luxury Ribbon Bow & Wax Seal Overlay (Matches User Reference Image) -->
               <div class="scratch-ribbon-overlay" id="scratchRibbonOverlay">
@@ -328,7 +333,7 @@
                   </div>
                 </div>
                 <div class="the-big-day-script">The Big Day</div>
-                <div class="scratch-card-prompt">✨ Scratch or Tap to Reveal ✨</div>
+                <div class="scratch-card-prompt" id="scratchCardPrompt">✨ Scratch or Tap to Reveal ✨</div>
               </div>
             </div>
 
@@ -589,6 +594,7 @@
       <a href="index.html" class="dock-btn" title="Edit Names, Dates & Venue"><i data-lucide="sliders"></i> Customize Form</a>
       <button id="dockWhatsAppBtn" class="dock-btn highlight-wa" title="Send directly to Guest via WhatsApp"><i data-lucide="message-circle"></i> WhatsApp</button>
       <button id="dockEmailBtn" class="dock-btn" title="Send via Email"><i data-lucide="mail"></i> Email</button>
+      <button id="dockQrBtn" class="dock-btn" title="View Guest QR Code"><i data-lucide="qr-code"></i> QR Code</button>
       <button id="dockCopyLinkBtn" class="dock-btn" title="Copy Personalized Shareable Link"><i data-lucide="link"></i> Copy Link</button>
     </div>
   </aside>
@@ -618,6 +624,19 @@
           <div class="recipient-row">
             <span class="rec-label"><i data-lucide="mail"></i> Email:</span>
             <span class="rec-val" id="dispatchRecEmail">guest@example.com</span>
+          </div>
+        </div>
+
+        <!-- QR Code Sharing (Mandatory Requirement) -->
+        <div class="qr-share-section">
+          <div class="qr-card-box">
+            <div class="qr-code-canvas-wrap">
+              <img id="dispatchQrImg" src="" alt="Scan QR to Open Invitation" class="dispatch-qr-img" width="130" height="130">
+            </div>
+            <div class="qr-meta-text">
+              <strong>📱 Contactless QR Code Access</strong>
+              <p>Guests can scan this QR code with any mobile camera to view their personalized 3D invitation immediately.</p>
+            </div>
           </div>
         </div>
 

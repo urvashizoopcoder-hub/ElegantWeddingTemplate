@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // State Management with Ranveer & Shanaya Default Request Data
   const state = {
+    templateId: 1,
+    collection: 'royal',
+    scratchType: 'gold-leaf',
     theme: 'crimson-gold',
     openingExperience: 'call',
     grandTitle: 'Grand Ballroom Starlight Wedding',
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     quillWritten: false,
     rsvpStatus: 'attending',
     guestCount: 2,
+    photos: {},
     ceremonies: [
       {
         name: "The Sangeet Spectacular",
@@ -122,12 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const scratchHint = document.getElementById('scratchHint');
   const scratchSealMonogram = document.getElementById('scratchSealMonogram');
   const scratchVenueName = document.getElementById('scratchVenueName');
+  const scratchCouplePhotoWrap = document.getElementById('scratchCouplePhotoWrap');
+  const scratchCoupleImg = document.getElementById('scratchCoupleImg');
+  const scratchCardPrompt = document.getElementById('scratchCardPrompt');
   const countDays = document.getElementById('countDays');
   const countHours = document.getElementById('countHours');
   const countMinutes = document.getElementById('countMinutes');
   const countSeconds = document.getElementById('countSeconds');
   const displayFooterDate = document.getElementById('displayFooterDate');
   const displayFooterVenue = document.getElementById('displayFooterVenue');
+  const dispatchQrImg = document.getElementById('dispatchQrImg');
+  const dockQrBtn = document.getElementById('dockQrBtn');
 
   const displayFullDateLine = document.getElementById('displayFullDateLine');
   const displayDayName = document.getElementById('displayDayName');
@@ -503,11 +512,258 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
 
   /* ==========================================================
-     INTERACTIVE SCRATCH-TO-REVEAL SAVE THE DATE (IMAGE 3)
+     INTERACTIVE SCRATCH-TO-REVEAL SAVE THE DATE (10 STYLES)
      ========================================================== */
   let isScratching = false;
   let scratchRevealed = false;
   let scratchStrokeCount = 0;
+
+  const SCRATCH_PROMPTS = {
+    'gold-leaf': '✨ Scratch 24K Gold Leaf to Reveal ✨',
+    'rose-petal': '🌹 Scratch Rose Petals to Reveal 🌹',
+    'mehendi': '🌿 Scratch Mehendi Design to Reveal 🌿',
+    'palace-seal': '👑 Break Palace Seal to Reveal 👑',
+    'royal-scroll': '📜 Unroll Royal Scroll to Reveal 📜',
+    'saree-fabric': '🥻 Scratch Zardozi Silk to Reveal 🥻',
+    'silk-curtain': '💫 Part Silk Veil to Reveal 💫',
+    'moon-surface': '🌙 Scratch Moonlight to Reveal 🌙',
+    'crystal-layer': '💎 Scratch Sheesh Mahal Crystal to Reveal 💎',
+    'flower-layer': '🌸 Clear Floral Garland to Reveal 🌸'
+  };
+
+  function drawScratchTexture(ctx, type, width, height) {
+    ctx.save();
+    type = type || 'gold-leaf';
+
+    if (type === 'rose-petal') {
+      // 🌹 Velvet Rose Petal Layer
+      const grad = ctx.createRadialGradient(width * 0.4, height * 0.3, 10, width * 0.5, height * 0.5, width * 0.7);
+      grad.addColorStop(0, '#f43f5e');
+      grad.addColorStop(0.5, '#be123c');
+      grad.addColorStop(1, '#881337');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Rose Petal Silhouettes
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      for (let i = 0; i < 24; i++) {
+        const px = (i * 37) % width;
+        const py = (i * 29) % height;
+        ctx.beginPath();
+        ctx.ellipse(px, py, 14, 8, (i * 45 * Math.PI) / 180, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.strokeStyle = 'rgba(254, 205, 211, 0.45)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'mehendi') {
+      // 🌿 Intricate Zardozi Mehendi
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#7c2d12');
+      grad.addColorStop(0.5, '#9a3412');
+      grad.addColorStop(1, '#431407');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Paisley / Henna Mandala Lines
+      ctx.strokeStyle = 'rgba(254, 240, 138, 0.45)';
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, 45, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, 25, 0, Math.PI * 2);
+      ctx.stroke();
+
+      for (let a = 0; a < 360; a += 30) {
+        const rad = (a * Math.PI) / 180;
+        ctx.beginPath();
+        ctx.moveTo(width / 2 + Math.cos(rad) * 25, height / 2 + Math.sin(rad) * 25);
+        ctx.lineTo(width / 2 + Math.cos(rad) * 45, height / 2 + Math.sin(rad) * 45);
+        ctx.stroke();
+      }
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'palace-seal') {
+      // 👑 Sovereign Palace Seal
+      const grad = ctx.createRadialGradient(width / 2, height / 2, 20, width / 2, height / 2, width * 0.6);
+      grad.addColorStop(0, '#9d174d');
+      grad.addColorStop(0.6, '#831843');
+      grad.addColorStop(1, '#500724');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(254, 240, 138, 0.55)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, 50, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, 55, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'royal-scroll') {
+      // 📜 Ancient Maharaja Scroll
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#fef3c7');
+      grad.addColorStop(0.5, '#fde68a');
+      grad.addColorStop(1, '#d97706');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(120, 53, 15, 0.35)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+      ctx.strokeStyle = 'rgba(180, 83, 9, 0.2)';
+      ctx.strokeRect(10, 10, width - 20, height - 20);
+
+    } else if (type === 'saree-fabric') {
+      // 🥻 Banarasi Zardozi Brocade
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#701a75');
+      grad.addColorStop(0.5, '#86198f');
+      grad.addColorStop(1, '#4a044e');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(253, 224, 71, 0.25)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < width; x += 12) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + height, height);
+        ctx.stroke();
+      }
+      for (let x = -height; x < width; x += 12) {
+        ctx.beginPath();
+        ctx.moveTo(x, height);
+        ctx.lineTo(x + height, 0);
+        ctx.stroke();
+      }
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'silk-curtain') {
+      // 💫 Sheer Silk Curtain
+      const grad = ctx.createLinearGradient(0, 0, width, 0);
+      grad.addColorStop(0, '#e2e8f0');
+      grad.addColorStop(0.3, '#f8fafc');
+      grad.addColorStop(0.6, '#cbd5e1');
+      grad.addColorStop(1, '#f1f5f9');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(203, 213, 225, 0.55)';
+      ctx.lineWidth = 2;
+      for (let x = 16; x < width; x += 22) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'moon-surface') {
+      // 🌙 Celestial Moon Surface
+      const grad = ctx.createRadialGradient(width * 0.5, height * 0.4, 15, width * 0.5, height * 0.5, width * 0.6);
+      grad.addColorStop(0, '#334155');
+      grad.addColorStop(0.5, '#1e293b');
+      grad.addColorStop(1, '#020617');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      for (let i = 0; i < 40; i++) {
+        const sx = (i * 47) % width;
+        const sy = (i * 31) % height;
+        ctx.fillStyle = (i % 2 === 0) ? 'rgba(255, 255, 255, 0.9)' : 'rgba(148, 163, 184, 0.5)';
+        ctx.beginPath();
+        ctx.arc(sx, sy, (i % 3 === 0) ? 2 : 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'crystal-layer') {
+      // 💎 Sheesh Mahal Crystal
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#f8fafc');
+      grad.addColorStop(0.3, '#e0f2fe');
+      grad.addColorStop(0.6, '#bae6fd');
+      grad.addColorStop(1, '#93c5fd');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.lineWidth = 1.5;
+      for (let x = 0; x < width; x += 35) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(width - x, height);
+        ctx.stroke();
+      }
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else if (type === 'flower-layer') {
+      // 🌸 Fresh Floral Garland
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#fef08a');
+      grad.addColorStop(0.5, '#fed7aa');
+      grad.addColorStop(1, '#fbcfe8');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      for (let i = 0; i < 35; i++) {
+        const px = (i * 41) % width;
+        const py = (i * 33) % height;
+        ctx.fillStyle = (i % 3 === 0) ? '#ea580c' : (i % 3 === 1 ? '#e11d48' : '#eab308');
+        ctx.beginPath();
+        ctx.arc(px, py, 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.strokeStyle = 'rgba(234, 88, 12, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    } else {
+      // ✨ 24K Gold Leaf Foil (Default)
+      const foilGrad = ctx.createLinearGradient(0, 0, width, height);
+      foilGrad.addColorStop(0.0, '#f9df90');
+      foilGrad.addColorStop(0.2, '#fdeeb3');
+      foilGrad.addColorStop(0.4, '#d4af37');
+      foilGrad.addColorStop(0.6, '#f7e7a9');
+      foilGrad.addColorStop(0.8, '#b8860b');
+      foilGrad.addColorStop(1.0, '#efd07b');
+      ctx.fillStyle = foilGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.lineWidth = 1.5;
+      for (let x = -height; x < width + height; x += 18) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + height, height);
+        ctx.stroke();
+      }
+
+      for (let i = 0; i < 40; i++) {
+        const sx = Math.random() * width;
+        const sy = Math.random() * height;
+        const sr = Math.random() * 2 + 0.5;
+        ctx.fillStyle = (i % 2 === 0) ? 'rgba(255, 255, 255, 0.85)' : 'rgba(184, 134, 11, 0.45)';
+        ctx.beginPath();
+        ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(6, 6, width - 12, height - 12);
+    }
+
+    ctx.restore();
+  }
 
   function initScratchCard() {
     if (!scratchCanvas || !scratchStage) return;
@@ -526,48 +782,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scratchHint) {
       scratchHint.innerHTML = '<span class="hand-icon">👆</span> Tap or scratch the card to reveal our date!';
     }
-
-    const width = scratchCanvas.width || 310;
-    const height = scratchCanvas.height || 190;
-
-    // Draw luxury metallic gold / rose foil gradient
-    ctx.save();
-    const foilGrad = ctx.createLinearGradient(0, 0, width, height);
-    foilGrad.addColorStop(0.0, '#f9df90');
-    foilGrad.addColorStop(0.2, '#fdeeb3');
-    foilGrad.addColorStop(0.4, '#d4af37');
-    foilGrad.addColorStop(0.6, '#f7e7a9');
-    foilGrad.addColorStop(0.8, '#b8860b');
-    foilGrad.addColorStop(1.0, '#efd07b');
-    ctx.fillStyle = foilGrad;
-    ctx.fillRect(0, 0, width, height);
-
-    // Subtle luxury diagonal stripe pattern
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
-    ctx.lineWidth = 1.5;
-    for (let x = -height; x < width + height; x += 18) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x + height, height);
-      ctx.stroke();
+    if (scratchCardPrompt) {
+      scratchCardPrompt.textContent = SCRATCH_PROMPTS[state.scratchType] || '✨ Scratch or Tap to Reveal ✨';
     }
 
-    // Shimmering gold sparkles
-    for (let i = 0; i < 40; i++) {
-      const sx = Math.random() * width;
-      const sy = Math.random() * height;
-      const sr = Math.random() * 2 + 0.5;
-      ctx.fillStyle = (i % 2 === 0) ? 'rgba(255, 255, 255, 0.85)' : 'rgba(184, 134, 11, 0.45)';
-      ctx.beginPath();
-      ctx.arc(sx, sy, sr, 0, Math.PI * 2);
-      ctx.fill();
-    }
+    const width = scratchCanvas.width || 315;
+    const height = scratchCanvas.height || 215;
 
-    // Border embossing
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(6, 6, width - 12, height - 12);
-    ctx.restore();
+    // Draw active premium scratch texture
+    drawScratchTexture(ctx, state.scratchType, width, height);
 
     function revealScratchCard() {
       if (scratchRevealed) return;
@@ -924,6 +1147,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (displayFooterVenue) {
       displayFooterVenue.textContent = state.venue;
     }
+
+    // Section 3: Scratch Prompt & Revealed Couple Portrait (Mandatory Requirement)
+    if (scratchCardPrompt) {
+      scratchCardPrompt.textContent = SCRATCH_PROMPTS[state.scratchType] || '✨ Scratch or Tap to Reveal ✨';
+    }
+    if (scratchCoupleImg) {
+      if (state.photos && (state.photos.bride_photo || state.photos.groom_photo)) {
+        scratchCoupleImg.src = state.photos.bride_photo || state.photos.groom_photo;
+      } else {
+        scratchCoupleImg.src = 'assets/portal_arch_clean.png';
+      }
+    }
     updateHeartCountdown();
 
     // Venue Sanctuary
@@ -1009,6 +1244,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const shareUrl = generateShareableLink();
     if (shareableUrlInput) shareableUrlInput.value = shareUrl;
 
+    // Dynamic QR Code generation for instant phone camera scan (Mandatory Requirement)
+    if (dispatchQrImg) {
+      dispatchQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(shareUrl)}`;
+    }
+
     const message = [
       `✨ *ROYAL WEDDING INVITATION* ✨`,
       ``,
@@ -1066,6 +1306,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openDispatchBtn) openDispatchBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
   if (dockWhatsAppBtn) dockWhatsAppBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
   if (dockEmailBtn) dockEmailBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
+  if (dockQrBtn) {
+    dockQrBtn.addEventListener('click', () => {
+      if (dispatchModal) {
+        dispatchModal.classList.add('open');
+        const qrEl = document.querySelector('.qr-share-section');
+        if (qrEl) qrEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
   if (closeDispatchModalBtn) closeDispatchModalBtn.addEventListener('click', () => dispatchModal.classList.remove('open'));
   if (dispatchModal) {
     dispatchModal.addEventListener('click', (e) => {
@@ -1108,6 +1357,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
 
     const params = new URLSearchParams(window.location.search);
+    if (params.has('template')) state.templateId = parseInt(params.get('template'), 10) || 1;
+    if (params.has('scratch')) state.scratchType = params.get('scratch');
+    if (params.has('theme')) state.theme = params.get('theme');
     if (params.has('bride')) state.bride = params.get('bride');
     if (params.has('groom')) state.groom = params.get('groom');
     if (params.has('venue')) state.venue = params.get('venue');
