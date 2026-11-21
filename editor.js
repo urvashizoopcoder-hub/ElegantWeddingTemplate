@@ -520,6 +520,19 @@
 
   // Initial Load
   loadCeremonies(DEFAULT_CEREMONIES);
+
+  // Check URL query param for ?template=X
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qTemplate = urlParams.get('template');
+    if (qTemplate && TEMPLATES_60[qTemplate] && templateSelect) {
+      templateSelect.value = qTemplate;
+      updateTemplateUI(parseInt(qTemplate, 10));
+    }
+  } catch (e) {
+    console.warn("Could not parse query params", e);
+  }
+
   if (iframe) {
     iframe.addEventListener('load', () => {
       setTimeout(updatePreview, 250);

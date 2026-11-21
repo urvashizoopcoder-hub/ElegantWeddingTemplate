@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Template 1: Royal Rajasthan Palace Gates | Royal Wedding Invitation</title>
+  <!-- Embedded Specific Template Configuration -->
+  <script>
+    window.TEMPLATE_CONFIG = {
+      templateId: 1,
+      title: "Royal Rajasthan Palace Gates",
+      collection: "royal",
+      scratchType: "gold-leaf",
+      theme: "crimson-gold",
+      grandTitle: "Royal Rajasthan Palace Gates · Royal Wedding",
+      openingExperience: "doors"
+    };
+  </script>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Josefin+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="theme-crimson-gold standalone-invite">
+  <script>
+    if (window.self !== window.top) {
+      document.body.classList.add('in-iframe');
+    }
+  </script>
+
+  <!-- Ambient Sparkling Dust Canvas in Background -->
+  <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
+
+  <!-- Audio elements -->
+  <audio id="bgMusic" src="../assets/call_music.mp3" loop preload="auto"></audio>
+
+  <!-- TOP LUXURY INVITATION HEADER (Clean, no viewport toggles) -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-badge">
+        <span class="brand-icon">💍</span>
+        <div class="brand-text">
+          <span class="brand-title" id="navBrandTitle">ROYAL PALACE</span>
+          <span class="brand-sub">Bespoke Wedding Invitation</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header-right">
+      <a href="../templates.html" class="action-btn" title="View All 60 Templates">
+        <i data-lucide="grid"></i> <span>All 60 Templates</span>
+      </a>
+      <a href="../index.html" id="openFormBtn" class="action-btn highlight-btn" title="Edit Invitation Details">
+        <i data-lucide="edit-3"></i> <span>Edit Form</span>
+      </a>
+      <button id="openDispatchBtn" class="action-btn gold-glow-btn" title="Send Invitation via WhatsApp & Mail">
+        <i data-lucide="send"></i> <span>Send to Guest</span>
+      </button>
+      <button id="musicToggleBtn" class="action-btn icon-only" title="Toggle Romantic Music">
+        <i data-lucide="music" id="musicIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- TEMPLATE SPECIFICATION BANNER (Shows Active Template & Concept) -->
+  <div class="template-spec-banner" id="templateSpecBanner">
+    <div class="spec-banner-inner">
+      <span class="spec-badge-id" id="badgeTemplateId">Template 1</span>
+      <strong class="spec-badge-title" id="badgeTemplateTitle">Royal Rajasthan Palace Gates</strong>
+      <span class="spec-badge-col" id="badgeTemplateCollection">🏰 Royal Collection</span>
+      <span class="spec-badge-scratch" id="badgeTemplateScratch">✨ 24K Gold Leaf Scratch</span>
+    </div>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-viewport-container" id="mainContainer">
+    <div class="phone-frame" id="phoneFrame">
+
+      <!-- ==============================================
+           OPENING OPTION A: INCOMING ROYAL WEDDING CALL SCREEN (iOS LUXURY STYLE)
+           ============================================== -->
+      <div class="incoming-call-screen" id="callScreen">
+        <!-- Background Couple Photo with Romantic Vignette -->
+        <div class="call-backdrop-image" id="callBackdrop"></div>
+        <div class="call-backdrop-gradient"></div>
+
+        <!-- Top Header & Caller Meta -->
+        <div class="call-top-content">
+          <div class="call-security-badge"><i data-lucide="sparkles"></i> Royal Wedding Invitation</div>
+          <h2 class="caller-name" id="callCoupleName">Ranveer &amp; Shanaya</h2>
+          <p class="caller-status" id="callStatusText">Incoming Royal Wedding Call…</p>
+        </div>
+
+        <!-- Center & Bottom iOS Controls Matching User's Screenshot -->
+        <div class="call-bottom-controls">
+          <!-- "Tap to feel the magic" Pill Badge -->
+          <div class="magic-tap-pill" id="magicTapPill" role="button" tabindex="0" title="Tap to feel the magic">
+            <span>✨ Tap to feel the magic</span>
+          </div>
+
+          <!-- Quick Secondary Action Buttons: Remind Me & Message -->
+          <div class="call-secondary-actions">
+            <button type="button" class="action-circle-btn" id="callRemindBtn">
+              <div class="circle-icon-wrap">
+                <i data-lucide="alarm-clock"></i>
+              </div>
+              <span class="action-btn-label">Remind Me</span>
+            </button>
+
+            <button type="button" class="action-circle-btn" id="callMessageBtn">
+              <div class="circle-icon-wrap">
+                <i data-lucide="message-circle"></i>
+              </div>
+              <span class="action-btn-label">Message</span>
+            </button>
+          </div>
+
+          <!-- Slide to Answer Slider Track -->
+          <div class="slide-to-answer-track" id="sliderTrack" title="Slide right to answer call">
+            <div class="slider-shimmer-text" id="sliderText">
+              <strong>slide</strong> to answer
+            </div>
+            <div class="slider-handle" id="sliderHandle">
+              <div class="handle-pulse-ring"></div>
+              <i data-lucide="phone" class="handle-phone-icon"></i>
+            </div>
+          </div>
+
+          <!-- iOS Home Indicator Bar -->
+          <div class="ios-home-indicator"></div>
+        </div>
+      </div>
+
+      <!-- INVITATION SCROLLABLE EXPERIENCE -->
+      <div class="invitation-scroll-area" id="invitationScrollArea">
+        
+        <!-- ==============================================
+             SECTION 1: 3D EMBOSSED BOTANICAL DOORS OPENING
+             ============================================== -->
+        <section class="section-hero-vault" id="vaultSection">
+          
+          <!-- Top floating controls inside invitation -->
+          <div class="vault-top-controls">
+            <button id="skipOpeningBtn" class="vault-pill-btn">Skip opening</button>
+            <button id="vaultSoundBtn" class="vault-pill-btn"><i data-lucide="volume-2" class="mini-icon"></i> <span id="vaultSoundText">Sound on</span></button>
+          </div>
+
+          <!-- 3D Perspective Door Stage -->
+          <div class="doors-perspective-stage" id="doorsStage">
+            
+            <!-- INNER SANCTUARY (Royal Palace Arch Alcove, Fountain, Silk Drapes & Hero Announcement) -->
+            <div class="inner-sanctuary" id="innerSanctuary">
+              
+              <!-- Royal Pleated Swaged Drapes & Golden Fringe Hanging at Top -->
+              <div class="royal-drapes-canopy">
+                <div class="drape-swag drape-left"></div>
+                <div class="drape-swag drape-center">
+                  <div class="canopy-gold-fringe"></div>
+                </div>
+                <div class="drape-swag drape-right"></div>
+              </div>
+
+              <!-- Top Hanging Chandelier Festoon (Eliminates empty void) -->
+              <div class="canopy-chandelier-festoon">
+                <span class="chandelier-glow">🕯️ ❦ 🕯️</span>
+              </div>
+
+              <!-- Sanctuary Golden Glow -->
+              <div class="sanctuary-halo"></div>
+
+              <!-- Hero Wedding Content inside Sanctuary -->
+              <div class="courtyard-hero-content">
+                
+                <!-- Ornate Royal Palace Crest & Monogram (Fills sanctuary void) -->
+                <div class="royal-sanctuary-crest">
+                  <span class="sanctuary-crown">👑</span>
+                  <div class="sanctuary-crest-monogram" id="sanctuaryMonogram">R &amp; S</div>
+                  <div class="sanctuary-garland-ornament">✦ ❦ ✦</div>
+                </div>
+
+                <div class="heart-symbol">❦</div>
+                <div class="sub-lead-text">We're getting married</div>
+                <div class="mini-ornament-line">─ ❦ ─</div>
+
+                <!-- Groom & Bride Names in Romantic Calligraphy -->
+                <div class="hero-couple-names" id="heroCoupleNames">
+                  <div class="name-line" id="heroGroomName">Ranveer</div>
+                  <div class="and-symbol">&amp;</div>
+                  <div class="name-line" id="heroBrideName">Shanaya</div>
+                </div>
+
+                <!-- Parents & Family Blessings -->
+                <div class="hero-parents-blessings">
+                  <p class="parent-line" id="heroGroomParents">Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal</p>
+                  <p class="parent-line" id="heroBrideParents">Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal</p>
+                </div>
+
+                <!-- Classical Courtyard Marble Fountain with Flowers Illustration -->
+                <div class="courtyard-fountain-wrap">
+                  <div class="fountain-balustrade"></div>
+                  <div class="fountain-basin">
+                    <div class="water-jets"></div>
+                  </div>
+                  <div class="fountain-flowers-left">🌸 🌿 🌹</div>
+                  <div class="fountain-flowers-right">🌹 🌿 🌸</div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- THE 3D EMBOSSED DOUBLE DOORS (WITH BOTANICAL & FLORAL ROSES) -->
+            <div class="door-leaf door-left" id="doorLeft">
+              <div class="door-surface door-embossed-leaves">
+                <div class="leaf-emboss-pattern"></div>
+                <div class="rose-emboss-pattern"></div>
+                <div class="door-inner-bevel"></div>
+                <div class="door-seam-glow"></div>
+              </div>
+            </div>
+
+            <div class="door-leaf door-right" id="doorRight">
+              <div class="door-surface door-embossed-leaves">
+                <div class="leaf-emboss-pattern"></div>
+                <div class="rose-emboss-pattern"></div>
+                <div class="door-inner-bevel"></div>
+                <div class="door-seam-glow"></div>
+              </div>
+            </div>
+
+            <!-- ORNATE SCALLOPED CREST & 3D MONOGRAM WAX SEAL -->
+            <div class="rings-clasp-container zareqia-crest" id="ringsClasp" title="Click to unlock & open the invitation">
+              <!-- 3D Monogram Wax Seal Stamp (From Webgency Video) -->
+              <div class="wax-seal-container" id="waxSealContainer">
+                <div class="wax-seal-stamp" id="waxSealStamp">
+                  <div class="wax-seal-rim">
+                    <span class="wax-seal-initials" id="waxInitials">R &amp; S</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ornate Scalloped Tag (Zareqia Video Style) -->
+              <div class="scalloped-crest-wrap" id="scallopedCrestWrap">
+                <div class="crest-rope-tassel"></div>
+                <div class="ornate-scalloped-tag">
+                  <div class="tag-inner-border">
+                    <div class="tag-flourish">❦</div>
+                    <div class="tag-text">TAP TO OPEN</div>
+                    <div class="tag-stars">✦ ✦ ✦</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rings-tap-hint">
+                <span class="tap-hand">✨</span>
+                <span class="tap-label">Touch to Reveal</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Story Continues Indicator -->
+          <div class="story-continue-banner" id="storyContinueBanner">
+            <div class="story-arabic-sub" id="displayGrandTitle">Grand Ballroom Starlight Wedding</div>
+            <div class="story-headline">Our Wedding Story</div>
+            <button class="scroll-down-arrow" id="scrollDownBtn" aria-label="Scroll down">
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="story-meta-pills">
+              <span class="story-pill" id="pillMusic">Music on</span>
+              <span class="story-pill" id="pillSound">Sound on</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ==============================================
+             SECTION 2: WARM WELCOME & FAMILY MESSAGE (MATCHING VIDEO)
+             ============================================== -->
+        <section class="section-welcome-letter" id="welcomeSection">
+          <div class="letter-card">
+            <div class="letter-accent-ornament">❧ ❦ ☙</div>
+            <p class="letter-body-text" id="welcomeMessageText">
+              We are honored to welcome you to the Wedding ceremony of <strong id="welcomeNames">Ranveer &amp; Shanaya</strong>. As they begin their journey together in faith and love, we thank you for being part of this blessed occasion 🤍
+            </p>
+            <div class="letter-signature-signoff" id="welcomeSignoff">
+              With love &amp; blessings, The Mittal &amp; Jindal Families
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             SECTION 3: SCRATCH-TO-REVEAL "SAVE THE DATE" & HEART COUNTDOWN (MATCHING USER REFERENCE)
+             ============================================== -->
+        <section class="section-save-the-date" id="dateSection">
+          <div class="save-the-date-card-wrapper">
+            
+            <!-- Top Garland Beads / Ribbon Border (From Reference Image) -->
+            <div class="garland-beads-border top-beads">
+              <span class="garland-tape left-tape"></span>
+              <div class="beads-row">
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span>
+              </div>
+              <span class="garland-tape right-tape"></span>
+            </div>
+
+            <!-- Header Titles -->
+            <div class="date-section-header">
+              <div class="script-accent-sub">A little surprise</div>
+              <h2 class="section-main-title">Save The Date</h2>
+              <p class="scratch-instruction-text" id="scratchHint">
+                <span class="hand-icon">👆</span> Tap or scratch the card to reveal our date!
+              </p>
+            </div>
+
+            <!-- Scratch-to-Reveal Card Stage -->
+            <div class="scratch-card-stage" id="scratchStage" title="Tap or drag to scratch and reveal date">
+              <!-- Underneath Concealed Wedding Date Card (Revealed only after scratch) -->
+              <div class="underneath-date-card" id="revealedDateCard">
+                <!-- Revealed Couple Portrait Avatar (Mandatory Requirement) -->
+                <div class="revealed-couple-photo-wrap" id="scratchCouplePhotoWrap">
+                  <img src="../assets/portal_arch_clean.png" alt="Couple" class="revealed-couple-img" id="scratchCoupleImg">
+                  <div class="photo-glow-ring"></div>
+                </div>
+                <div class="sparkle-burst-icon">✨ 💍 ✨</div>
+                <div class="revealed-lead">WE ARE CELEBRATING</div>
+                <h3 class="revealed-date-title" id="displayFullDateLine">November 25, 2027</h3>
+                <div class="revealed-day-time" id="displayTimeLine">
+                  <span id="displayDayName">Thursday</span> · <span id="displayEventTime">7:00 PM</span>
+                </div>
+                <div class="revealed-venue-micro" id="scratchVenueName">The Taj Mahal Palace Ballroom, Mumbai</div>
+              </div>
+
+              <!-- Interactive Scratch Foil Canvas Layer (10 Styles supported) -->
+              <canvas class="scratch-foil-canvas" id="scratchCanvas" width="315" height="215"></canvas>
+
+              <!-- Luxury Ribbon Bow & Wax Seal Overlay (Matches User Reference Image) -->
+              <div class="scratch-ribbon-overlay" id="scratchRibbonOverlay">
+                <div class="ribbon-bow-wings">
+                  <div class="bow-wing wing-left"></div>
+                  <div class="bow-wing wing-right"></div>
+                  <div class="ribbon-tail tail-left"></div>
+                  <div class="ribbon-tail tail-right"></div>
+                  <div class="bow-center-seal">
+                    <span class="bow-seal-monogram" id="scratchSealMonogram">R &amp; S</span>
+                  </div>
+                </div>
+                <div class="the-big-day-script">The Big Day</div>
+                <div class="scratch-card-prompt" id="scratchCardPrompt">✨ Scratch or Tap to Reveal ✨</div>
+              </div>
+            </div>
+
+            <!-- "The start of a beautiful journey..." Subtitle -->
+            <div class="journey-subtitle">
+              The start of a beautiful journey…
+            </div>
+
+            <!-- 4 3D GLOSSY HEART LIVE COUNTDOWN TIMERS (From User Reference Image) -->
+            <div class="hearts-countdown-grid">
+              <!-- Days -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countDays">00</span>
+                    <span class="heart-label">DAYS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countHours">00</span>
+                    <span class="heart-label">HOURS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Minutes -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countMinutes">00</span>
+                    <span class="heart-label">MINUTES</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seconds -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countSeconds">00</span>
+                    <span class="heart-label">SECONDS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Date & Sanctuary Info Line below Hearts -->
+            <div class="date-footer-meta">
+              <div class="footer-day-date" id="displayFooterDate">Thursday | 25th Nov 2027</div>
+              <div class="footer-venue-line" id="displayFooterVenue">The Taj Mahal Palace Ballroom, Mumbai</div>
+              
+              <!-- + Add to Calendar Pill Button -->
+              <div class="save-btn-wrap">
+                <button id="addToCalendarBtn" class="pill-add-calendar-btn">
+                  <span>+ Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Curated Wedding Memories / Floral Decor Carousel -->
+            <div class="decor-carousel-wrap">
+              <div class="decor-slider" id="decorSlider">
+                <div class="slide active">
+                  <div class="slide-photo-placeholder palace-slide">
+                    <div class="slide-caption">The Ballroom Starlight Gala</div>
+                  </div>
+                </div>
+                <div class="slide">
+                  <div class="slide-photo-placeholder floral-slide">
+                    <div class="slide-caption">Sacred Floral Mandap</div>
+                  </div>
+                </div>
+                <div class="slide">
+                  <div class="slide-photo-placeholder car-slide">
+                    <div class="slide-caption">Gateway of India Baraat</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Carousel Dots -->
+              <div class="carousel-dots" id="carouselDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <!-- Bottom Garland Beads / Ribbon Border (From Reference Image) -->
+            <div class="garland-beads-border bottom-beads">
+              <span class="garland-tape left-tape"></span>
+              <div class="beads-row">
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span>
+              </div>
+              <span class="garland-tape right-tape"></span>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==============================================
+             SECTION 4: SACRED CEREMONIES TIMELINE (MATCHING VIDEO)
+             ============================================== -->
+        <section class="section-sacred-ceremonies" id="ceremoniesSection">
+          <div class="section-header-centered">
+            <span class="sub-header-tracker">SACRED CEREMONIES</span>
+            <h2 class="script-headline">Pre-Wedding Events</h2>
+            <p class="section-instruction">Join us in each auspicious milestone of our celebration.</p>
+          </div>
+
+          <div class="ceremonies-timeline-container" id="timelineContainer">
+            <!-- Dynamically populated from state.ceremonies -->
+          </div>
+        </section>
+
+        <!-- ==============================================
+             SECTION 5: MAIN SANCTUARY VENUE RECEPTION
+             ============================================== -->
+        <section class="section-venue-reception" id="venueSection">
+          <div class="section-header-centered">
+            <span class="sub-header-tracker">MAIN CELEBRATION SANCTUARY</span>
+            <h2 class="script-headline">Meet us here</h2>
+          </div>
+
+          <div class="venue-card-wrapper">
+            <div class="venue-arch-frame">
+              <div class="palace-illustration-wrap">
+                <img src="../assets/palace.png" alt="Royal Wedding Palace" class="palace-img">
+              </div>
+
+              <div class="venue-info-block">
+                <div class="venue-badge-label">SANCTUARY</div>
+                <h3 class="venue-name" id="displayVenueName">The Taj Mahal Palace Ballroom, Mumbai</h3>
+                <p class="venue-street" id="displayVenueAddress">Apollo Bunder, Colaba, Mumbai</p>
+                <p class="venue-city" id="displayVenueCity">Mumbai, Maharashtra 400001</p>
+                
+                <div class="venue-datetime-badge" id="displayVenueDateTime">
+                  <i data-lucide="calendar" class="mini-icon"></i>
+                  <span>Thursday, 25 November 2027 · 7:00 PM</span>
+                </div>
+
+                <div class="venue-action-row">
+                  <a id="directionsBtn" href="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener noreferrer" class="royal-gold-pill-btn directions-link">
+                    <span>Open directions</span>
+                    <i data-lucide="arrow-up-right" class="btn-arrow-icon"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             SECTION 6: "WRITTEN WITH LOVE" - FEATHER QUILL ANIMATION
+             ============================================== -->
+        <section class="section-quill-signature" id="quillSection">
+          <div class="section-header-centered">
+            <span class="sub-header-tracker">A PROMISE TO KEEP</span>
+            <h2 class="script-headline">Written with love</h2>
+            <p class="section-instruction">Two names. One beautiful forever.</p>
+          </div>
+
+          <div class="parchment-card-wrap">
+            <div class="parchment-sheet">
+              <div class="parchment-corner-curl"></div>
+
+              <div class="quill-drawing-stage" id="quillStage">
+                <div class="feather-quill-pen" id="featherQuill">
+                  <img src="../assets/quill_clean.png" alt="Calligraphy Quill" class="quill-img">
+                </div>
+
+                <div class="calligraphy-script-wrap" id="calligraphyWrap">
+                  <div class="calligraphy-written-text" id="quillTextNames">Ranveer &amp; Shanaya</div>
+                  <div class="calligraphy-line"></div>
+                </div>
+              </div>
+
+              <div class="quill-prompt-text" id="quillStatusText">
+                Guide the pen across the paper.
+              </div>
+
+              <div class="quill-actions-wrap">
+                <button id="writeNamesBtn" class="royal-gold-pill-btn">
+                  <span id="writeBtnText">Write our names</span>
+                </button>
+              </div>
+
+              <div class="quill-footer-quote">
+                A lifetime, together. Written with love.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==============================================
+             SECTION 7: RSVP & BLESSINGS
+             ============================================== -->
+        <section class="section-rsvp-blessing" id="rsvpSection">
+          <div class="section-header-centered">
+            <span class="sub-header-tracker">CONFIRM ATTENDANCE</span>
+            <h2 class="script-headline">With Warmest Blessings</h2>
+          </div>
+
+          <div class="rsvp-card">
+            <div class="guest-salutation" id="displayGuestSalutation">
+              Honoured Guest, we look forward to having you with us.
+            </div>
+            
+            <div class="rsvp-choice-group">
+              <button class="rsvp-pill-btn active" id="rsvpJoyfully"><i data-lucide="check-circle"></i> Joyfully Attending</button>
+              <button class="rsvp-pill-btn" id="rsvpRegretfully"><i data-lucide="x-circle"></i> Regretfully Cannot</button>
+            </div>
+
+            <div class="rsvp-guest-counter">
+              <label>Number of Guests:</label>
+              <div class="counter-stepper">
+                <button id="guestMinusBtn">-</button>
+                <span id="guestCountDisplay">2</span>
+                <button id="guestPlusBtn">+</button>
+              </div>
+            </div>
+
+            <div class="rsvp-actions">
+              <button id="submitRsvpBtn" class="royal-gold-pill-btn">
+                <span>Confirm RSVP via WhatsApp</span>
+                <i data-lucide="send" class="btn-arrow-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="replay-bar">
+            <button id="replayVaultBtn" class="text-pill-btn">
+              <i data-lucide="rotate-ccw"></i> Replay Opening Ceremony
+            </button>
+          </div>
+        </section>
+
+      </div><!-- End invitation-scroll-area -->
+
+    </div><!-- End phone-frame -->
+  </main>
+
+  <!-- FLOATING INVITER ACTION DOCK -->
+  <aside class="floating-inviter-dock">
+    <div class="dock-pill">
+      <a href="../index.html" class="dock-btn" title="Edit Names, Dates & Venue"><i data-lucide="sliders"></i> Customize Form</a>
+      <button id="dockWhatsAppBtn" class="dock-btn highlight-wa" title="Send directly to Guest via WhatsApp"><i data-lucide="message-circle"></i> WhatsApp</button>
+      <button id="dockEmailBtn" class="dock-btn" title="Send via Email"><i data-lucide="mail"></i> Email</button>
+      <button id="dockQrBtn" class="dock-btn" title="View Guest QR Code"><i data-lucide="qr-code"></i> QR Code</button>
+      <button id="dockCopyLinkBtn" class="dock-btn" title="Copy Personalized Shareable Link"><i data-lucide="link"></i> Copy Link</button>
+    </div>
+  </aside>
+
+  <!-- DISPATCH MODAL -->
+  <div class="modal-backdrop" id="dispatchModal">
+    <div class="modal-dialog-luxury dispatch-dialog">
+      <div class="modal-header-luxury">
+        <div class="modal-title-group">
+          <span class="modal-crown">💌</span>
+          <h2>Send Invitation to Guest</h2>
+          <p>Delivers directly to the recipient's WhatsApp number or email with a personalized interactive link.</p>
+        </div>
+        <button id="closeDispatchModalBtn" class="modal-close-icon"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="dispatch-content">
+        <div class="recipient-overview-box">
+          <div class="recipient-row">
+            <span class="rec-label"><i data-lucide="user"></i> Recipient:</span>
+            <span class="rec-val" id="dispatchRecName">Dr. Ayan & Family</span>
+          </div>
+          <div class="recipient-row">
+            <span class="rec-label"><i data-lucide="phone"></i> WhatsApp:</span>
+            <span class="rec-val" id="dispatchRecPhone">+971 50 123 4567</span>
+          </div>
+          <div class="recipient-row">
+            <span class="rec-label"><i data-lucide="mail"></i> Email:</span>
+            <span class="rec-val" id="dispatchRecEmail">guest@example.com</span>
+          </div>
+        </div>
+
+        <!-- QR Code Sharing (Mandatory Requirement) -->
+        <div class="qr-share-section">
+          <div class="qr-card-box">
+            <div class="qr-code-canvas-wrap">
+              <img id="dispatchQrImg" src="" alt="Scan QR to Open Invitation" class="dispatch-qr-img" width="130" height="130">
+            </div>
+            <div class="qr-meta-text">
+              <strong>📱 Contactless QR Code Access</strong>
+              <p>Guests can scan this QR code with any mobile camera to view their personalized 3D invitation immediately.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-preview-container">
+          <div class="preview-badge-header">
+            <i data-lucide="message-circle" class="wa-green-icon"></i> WhatsApp Message Preview
+          </div>
+          <div class="wa-chat-bubble" id="waMessagePreview"></div>
+        </div>
+
+        <div class="dispatch-actions-grid">
+          <button id="sendDirectWhatsAppBtn" class="dispatch-btn wa-launch-btn">
+            <i data-lucide="message-circle"></i>
+            <div>
+              <strong>Send via WhatsApp Now</strong>
+              <span>Opens chat directly with <span id="btnWaNumber">+971501234567</span></span>
+            </div>
+          </button>
+
+          <button id="sendDirectEmailBtn" class="dispatch-btn email-launch-btn">
+            <i data-lucide="mail"></i>
+            <div>
+              <strong>Send via Email</strong>
+              <span>Launches email client to <span id="btnEmailAddr">guest@example.com</span></span>
+            </div>
+          </button>
+        </div>
+
+        <div class="shareable-link-box">
+          <label>Personalized Invitation Link for this Guest:</label>
+          <div class="copy-input-row">
+            <input type="text" id="shareableUrlInput" readonly value="">
+            <button id="copyShareUrlBtn" class="copy-btn"><i data-lucide="copy"></i> Copy</button>
+          </div>
+          <span class="copy-success-toast" id="copyToast">Link copied to clipboard!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

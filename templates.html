@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>60 Bespoke Luxury Wedding Invitation Templates | Separate URLs & Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa820a;
+      --bg: #0d0609;
+      --bg-card: rgba(26, 14, 20, 0.85);
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --text: #fdfaf6;
+      --text-muted: #c9b8ab;
+      --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: radial-gradient(circle at 50% 0%, #2a111a 0%, #0d0609 70%, #050204 100%);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      padding-bottom: 80px;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* Top Header */
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+    }
+    .header-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      background: rgba(212, 175, 55, 0.08);
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 20%, var(--gold-light) 60%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .header-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 24px;
+      font-style: italic;
+    }
+    .nav-bar-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      color: var(--gold-light);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .nav-pill:hover {
+      background: var(--gold);
+      color: #0d0609;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Filter & Search Bar */
+    .filter-section {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(13, 6, 9, 0.92);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 16px 0;
+      margin-bottom: 36px;
+    }
+    .filter-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gold);
+      color: #0d0609;
+      border-color: var(--gold);
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+    }
+    .search-box {
+      position: relative;
+      min-width: 280px;
+      flex-grow: 1;
+      max-width: 360px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--gold);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      opacity: 0.6;
+    }
+
+    /* Template Cards Grid */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 26px;
+    }
+    .template-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .template-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .template-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 16px 36px rgba(212, 175, 55, 0.18);
+    }
+    .template-card:hover::before {
+      opacity: 1;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .card-id {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .card-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.25));
+    }
+    .card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .card-desc {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .meta-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      color: #eee;
+    }
+    .card-url-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px dashed rgba(212, 175, 55, 0.3);
+      padding: 7px 12px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+    }
+    .card-url-box code {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+    }
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: #0d0609;
+      font-weight: 700;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(212, 175, 55, 0.35);
+      filter: brightness(1.1);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+    }
+    .btn-secondary:hover {
+      background: rgba(212, 175, 55, 0.2);
+      transform: translateY(-2px);
+    }
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #eee;
+      padding: 9px 12px;
+    }
+    .btn-copy:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+    .btn-copy.copied {
+      background: #27ae60 !important;
+      color: #fff !important;
+      border-color: #27ae60 !important;
+    }
+
+    /* Quick stats banner */
+    .stats-banner {
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .stat-item h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+    }
+    .stat-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #27ae60;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .template-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+      .btn-copy {
+        grid-column: span 2;
+      }
+      .search-box {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <span class="header-badge">Grand Wedding Showcase</span>
+      <h1>60 Bespoke Luxury Wedding Templates</h1>
+      <p class="header-subtitle">
+        Every invitation is a cinematic masterpiece featuring custom 3D storytelling, 10 tactile scratch foils, hidden Save The Date reveals, ambient audio, and instant separate URLs.
+      </p>
+
+      <div class="nav-bar-btns">
+        <a href="index.html" class="nav-pill">✏️ Open Royal Invitation Editor</a>
+        <a href="template-1.html" class="nav-pill" target="_blank">👑 Experience Template #01</a>
+        <a href="template-60.html" class="nav-pill" target="_blank">🌟 Experience Flagship Multi-Scene (#60)</a>
+      </div>
+
+      <div class="stats-banner">
+        <div class="stat-item">
+          <h4>60</h4>
+          <p>Unique Templates</p>
+        </div>
+        <div class="stat-item">
+          <h4>6</h4>
+          <p>Thematic Collections</p>
+        </div>
+        <div class="stat-item">
+          <h4>10</h4>
+          <p>Tactile Scratch Foils</p>
+        </div>
+        <div class="stat-item">
+          <h4>60</h4>
+          <p>Separate Standalone URLs</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="filter-section">
+    <div class="container filter-wrapper">
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All (60)</button>
+        <button class="filter-btn" data-filter="royal">🏰 Royal (10)</button>
+        <button class="filter-btn" data-filter="floral">🌸 Floral (10)</button>
+        <button class="filter-btn" data-filter="fairytale">🧚 Fairytale (10)</button>
+        <button class="filter-btn" data-filter="cinematic">🎬 Cinematic (10)</button>
+        <button class="filter-btn" data-filter="cosmic">🌌 Cosmic (10)</button>
+        <button class="filter-btn" data-filter="destination">✈️ Destination (10)</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search templates by title, foil, or keyword...">
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="template-grid" id="templateGrid">
+      
+    <div class="template-card" data-collection="royal" data-tid="1" data-title="royal rajasthan palace gates" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#01</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏰</div>
+        <h3 class="card-title">Royal Rajasthan Palace Gates</h3>
+        <p class="card-desc">Massive royal palace gates swing open with gilded elephants welcoming guests as crimson carpets automatically unfurl into the mandap.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-1.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-1.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=1" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-1.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="2" data-title="udaipur floating palace" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#02</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏰</div>
+        <h3 class="card-title">Udaipur Floating Palace</h3>
+        <p class="card-desc">Invitation emerges from a shimmering palace reflection in Lake Pichola with ripples parting into the celebration.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-2.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-2.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=2" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-2.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="3" data-title="sheesh mahal" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#03</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏰</div>
+        <h3 class="card-title">Sheesh Mahal</h3>
+        <p class="card-desc">Crystal mirror reflections and dancing prismatic light rays converge to reveal the royal mandate.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-3.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-3.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=3" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-3.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="4" data-title="golden maharaja scroll" data-scratch="royal-scroll">
+      <div class="card-header">
+        <span class="card-id">#04</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">📜</div>
+        <h3 class="card-title">Golden Maharaja Scroll</h3>
+        <p class="card-desc">Ancient handmade royal scroll unrolls with golden tassels, sliding the invitation from within.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Royal Scroll</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-4.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-4.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=4" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-4.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="5" data-title="royal baraat experience" data-scratch="palace-seal">
+      <div class="card-header">
+        <span class="card-id">#05</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🎺</div>
+        <h3 class="card-title">Royal Baraat Experience</h3>
+        <p class="card-desc">Guests follow an animated royal baraat procession with vintage motorcars leading into the sacred mandap.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Palace Seal</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-5.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-5.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=5" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-5.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="6" data-title="palace courtyard lantern night" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#06</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏮</div>
+        <h3 class="card-title">Palace Courtyard Lantern Night</h3>
+        <p class="card-desc">Glowing 3D lanterns float into the twilight sky revealing pathways to the palace courtyard.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-6.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-6.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=6" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-6.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="7" data-title="ancient haveli" data-scratch="mehendi">
+      <div class="card-header">
+        <span class="card-id">#07</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🚪</div>
+        <h3 class="card-title">Ancient Haveli</h3>
+        <p class="card-desc">Carved antique teakwood haveli doors unlock to reveal heritage courtyards with fountains.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Mehendi</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Terracotta Marigold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-7.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-7.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=7" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-7.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="8" data-title="peacock kingdom" data-scratch="saree-fabric">
+      <div class="card-header">
+        <span class="card-id">#08</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🦚</div>
+        <h3 class="card-title">Peacock Kingdom</h3>
+        <p class="card-desc">Iridescent emerald and royal blue peacock plumes gracefully spread to reveal the celebration.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Saree Fabric</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Emerald Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-8.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-8.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=8" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-8.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="9" data-title="lotus kingdom" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#09</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🪷</div>
+        <h3 class="card-title">Lotus Kingdom</h3>
+        <p class="card-desc">Sacred lotus blossoms bloom one-by-one across tranquil waters, unveiling the wedding sanctum.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-9.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-9.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=9" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-9.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="royal" data-tid="10" data-title="royal elephant procession" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#10</span>
+        <span class="card-badge" style="border-color: #d4af37; color: #d4af37;">🏰 Royal Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🐘</div>
+        <h3 class="card-title">Royal Elephant Procession</h3>
+        <p class="card-desc">Caparisoned royal elephants bring a jewel-encrusted casket that opens to reveal the invitation.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-10.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-10.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=10" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-10.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="11" data-title="rose garden" data-scratch="rose-petal">
+      <div class="card-header">
+        <span class="card-id">#11</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌹</div>
+        <h3 class="card-title">Rose Garden</h3>
+        <p class="card-desc">The entire digital sanctuary unfolds from a blooming velvet crimson rosebud.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Rose Petal</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Wine Rose</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-11.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-11.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=11" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-11.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="12" data-title="cherry blossom" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#12</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌸</div>
+        <h3 class="card-title">Cherry Blossom</h3>
+        <p class="card-desc">Gentle sakura blossom breezes shower across the screen, parting into the couple's story.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-12.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-12.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=12" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-12.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="13" data-title="lavender valley" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#13</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🪻</div>
+        <h3 class="card-title">Lavender Valley</h3>
+        <p class="card-desc">Rolling purple Provence lavender fields sway in soft wind as the invitation rises.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-13.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-13.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=13" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-13.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="14" data-title="flower tunnel" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#14</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌺</div>
+        <h3 class="card-title">Flower Tunnel</h3>
+        <p class="card-desc">Guests scroll through an endless 3D floral archway tunnel wrapped in jasmine and orchids.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Wine Rose</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-14.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-14.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=14" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-14.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="15" data-title="secret garden" data-scratch="rose-petal">
+      <div class="card-header">
+        <span class="card-id">#15</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🗝️</div>
+        <h3 class="card-title">Secret Garden</h3>
+        <p class="card-desc">An ornate wrought-iron locked garden gate unlocks and swings open into an enchanted arbor.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Rose Petal</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Emerald Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-15.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-15.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=15" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-15.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="16" data-title="jasmine night" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#16</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌙</div>
+        <h3 class="card-title">Jasmine Night</h3>
+        <p class="card-desc">Fragrant star jasmine glows under moonlight with night-blooming botanicals.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-16.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-16.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=16" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-16.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="17" data-title="butterfly paradise" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#17</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🦋</div>
+        <h3 class="card-title">Butterfly Paradise</h3>
+        <p class="card-desc">Flocks of shimmering blue Morpho butterflies assemble the invitation pieces together.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-17.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-17.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=17" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-17.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="18" data-title="sunflower dreams" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#18</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌻</div>
+        <h3 class="card-title">Sunflower Dreams</h3>
+        <p class="card-desc">Golden sunflowers rotate toward the sunlight as golden rays illuminate the wedding details.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Terracotta Marigold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-18.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-18.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=18" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-18.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="19" data-title="botanical luxury" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#19</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌿</div>
+        <h3 class="card-title">Botanical Luxury</h3>
+        <p class="card-desc">A majestic Victorian glasshouse conservatory with exotic palms and gilded ironwork.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Emerald Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-19.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-19.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=19" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-19.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="floral" data-tid="20" data-title="floating petals fantasy" data-scratch="rose-petal">
+      <div class="card-header">
+        <span class="card-id">#20</span>
+        <span class="card-badge" style="border-color: #ff758c; color: #ff758c;">🌸 Floral Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌸</div>
+        <h3 class="card-title">Floating Petals Fantasy</h3>
+        <p class="card-desc">A kinetic whirlwind of flower petals gathers and crystallizes into the wedding card.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Rose Petal</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-20.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-20.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=20" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-20.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="21" data-title="disney castle" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#21</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏰</div>
+        <h3 class="card-title">Disney Castle</h3>
+        <p class="card-desc">Magical fairy-tale castle with midnight fireworks bursting across a starry sky.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-21.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-21.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=21" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-21.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="22" data-title="enchanted forest" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#22</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌲</div>
+        <h3 class="card-title">Enchanted Forest</h3>
+        <p class="card-desc">Bioluminescent moss, glowing crystal flora, and guiding fireflies light the way.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Emerald Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-22.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-22.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=22" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-22.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="23" data-title="magic book" data-scratch="royal-scroll">
+      <div class="card-header">
+        <span class="card-id">#23</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">📖</div>
+        <h3 class="card-title">Magic Book</h3>
+        <p class="card-desc">A leatherbound fairy-tale tome opens with gilded 3D pop-up scenes and turning pages.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Royal Scroll</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Terracotta Marigold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-23.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-23.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=23" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-23.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="24" data-title="crystal castle" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#24</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">💎</div>
+        <h3 class="card-title">Crystal Castle</h3>
+        <p class="card-desc">Shimmering crystal palace spires refracting rainbow prism light across the screen.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-24.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-24.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=24" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-24.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="25" data-title="magic portal" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#25</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌀</div>
+        <h3 class="card-title">Magic Portal</h3>
+        <p class="card-desc">A swirling interdimensional love stargate warps guests directly into the celebration.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-25.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-25.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=25" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-25.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="26" data-title="moon princess theme" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#26</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌙</div>
+        <h3 class="card-title">Moon Princess Theme</h3>
+        <p class="card-desc">A glowing silver crescent moon throne resting above pastel twilight clouds.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-26.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-26.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=26" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-26.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="27" data-title="fairy queen theme" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#27</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🧚</div>
+        <h3 class="card-title">Fairy Queen Theme</h3>
+        <p class="card-desc">Delicate gossamer wings and shimmering pixie gold dust illuminating sacred vows.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-27.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-27.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=27" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-27.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="28" data-title="floating island kingdom" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#28</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏝️</div>
+        <h3 class="card-title">Floating Island Kingdom</h3>
+        <p class="card-desc">Majestic floating sky islands with waterfalls cascading into infinity.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-28.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-28.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=28" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-28.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="29" data-title="unicorn fantasy" data-scratch="rose-petal">
+      <div class="card-header">
+        <span class="card-id">#29</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🦄</div>
+        <h3 class="card-title">Unicorn Fantasy</h3>
+        <p class="card-desc">Pastel rainbow clouds, aurora borealis ribbons, and celestial starlight.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Rose Petal</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-29.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-29.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=29" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-29.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="fairytale" data-tid="30" data-title="golden magic tree" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#30</span>
+        <span class="card-badge" style="border-color: #a18cd1; color: #a18cd1;">🧚 Fairytale Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌳</div>
+        <h3 class="card-title">Golden Magic Tree</h3>
+        <p class="card-desc">Ancient tree of eternal love whose branches sprout golden leaves inscribed with vows.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Emerald Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-30.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-30.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=30" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-30.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="31" data-title="bollywood movie trailer" data-scratch="palace-seal">
+      <div class="card-header">
+        <span class="card-id">#31</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🎬</div>
+        <h3 class="card-title">Bollywood Movie Trailer</h3>
+        <p class="card-desc">High-octane Bollywood clapperboard, orchestral brass fanfare, and dramatic cinematic title reveals.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Palace Seal</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-31.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-31.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=31" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-31.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="32" data-title="netflix wedding trailer" data-scratch="saree-fabric">
+      <div class="card-header">
+        <span class="card-id">#32</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">📺</div>
+        <h3 class="card-title">Netflix Wedding Trailer</h3>
+        <p class="card-desc">Iconic N-sting sound and streaming UI queue introducing the greatest love blockbuster.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Saree Fabric</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-32.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-32.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=32" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-32.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="33" data-title="movie premiere" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#33</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🎞️</div>
+        <h3 class="card-title">Movie Premiere</h3>
+        <p class="card-desc">Hollywood spotlights sweep the night sky with paparazzi flashbulbs welcoming VIP guests.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-33.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-33.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=33" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-33.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="34" data-title="vintage cinema hall" data-scratch="royal-scroll">
+      <div class="card-header">
+        <span class="card-id">#34</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🎟️</div>
+        <h3 class="card-title">Vintage Cinema Hall</h3>
+        <p class="card-desc">Flickering 35mm projector beam, vintage sepia film grain, and perforated golden ticket stubs.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Royal Scroll</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Terracotta Marigold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-34.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-34.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=34" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-34.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="35" data-title="film reel experience" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#35</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">📽️</div>
+        <h3 class="card-title">Film Reel Experience</h3>
+        <p class="card-desc">Unspooling celluloid 35mm film strips showcasing couple memories in motion.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-35.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-35.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=35" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-35.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="36" data-title="blockbuster reveal" data-scratch="palace-seal">
+      <div class="card-header">
+        <span class="card-id">#36</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">💥</div>
+        <h3 class="card-title">Blockbuster Reveal</h3>
+        <p class="card-desc">Massive 3D golden titles shatter onto the screen with billowing cinematic gold smoke.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Palace Seal</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-36.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-36.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=36" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-36.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="37" data-title="love story documentary" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#37</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🎙️</div>
+        <h3 class="card-title">Love Story Documentary</h3>
+        <p class="card-desc">Cinematic widescreen letterbox aesthetic with documentary narration and heartfelt vows.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-37.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-37.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=37" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-37.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="38" data-title="award show theme" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#38</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏆</div>
+        <h3 class="card-title">Award Show Theme</h3>
+        <p class="card-desc">Golden statuette pedestals and an Oscar-style sealed golden envelope unsealing.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-38.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-38.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=38" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-38.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="39" data-title="luxury fashion show" data-scratch="saree-fabric">
+      <div class="card-header">
+        <span class="card-id">#39</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">👠</div>
+        <h3 class="card-title">Luxury Fashion Show</h3>
+        <p class="card-desc">Haute couture Vogue-style cover layout with runway strobe lights and bold typography.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Saree Fabric</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Wine Rose</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-39.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-39.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=39" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-39.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cinematic" data-tid="40" data-title="red carpet walk" data-scratch="saree-fabric">
+      <div class="card-header">
+        <span class="card-id">#40</span>
+        <span class="card-badge" style="border-color: #f6d365; color: #f6d365;">🎬 Cinematic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🚶</div>
+        <h3 class="card-title">Red Carpet Walk</h3>
+        <p class="card-desc">VIP velvet ropes unclip as guests walk the crimson carpet into the grand ballroom.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Saree Fabric</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-40.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-40.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=40" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-40.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="41" data-title="galaxy love story" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#41</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌌</div>
+        <h3 class="card-title">Galaxy Love Story</h3>
+        <p class="card-desc">A spinning spiral galaxy converges as cosmic dust aligns the two lovers into celestial orbit.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-41.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-41.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=41" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-41.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="42" data-title="moonlight romance" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#42</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌕</div>
+        <h3 class="card-title">Moonlight Romance</h3>
+        <p class="card-desc">A luminous supermoon glowing above calm nocturnal waves with silver water trails.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-42.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-42.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=42" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-42.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="43" data-title="constellation journey" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#43</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">✨</div>
+        <h3 class="card-title">Constellation Journey</h3>
+        <p class="card-desc">Golden stellar lines connect stars across the night sky, drawing the couple's monogram.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-43.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-43.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=43" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-43.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="44" data-title="aurora wedding" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#44</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">💫</div>
+        <h3 class="card-title">Aurora Wedding</h3>
+        <p class="card-desc">Emerald, magenta, and violet Northern Lights dancing across a star-dusted tundra sky.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-44.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-44.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=44" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-44.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="45" data-title="planetary wedding" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#45</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🪐</div>
+        <h3 class="card-title">Planetary Wedding</h3>
+        <p class="card-desc">Golden rings of Saturn orbiting interlocked golden wedding bands in zero gravity.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-45.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-45.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=45" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-45.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="46" data-title="milky way theme" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#46</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🌠</div>
+        <h3 class="card-title">Milky Way Theme</h3>
+        <p class="card-desc">An arch of billions of glowing stars forming an infinite celestial wedding mandap.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-46.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-46.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=46" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-46.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="47" data-title="shooting star theme" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#47</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">⭐</div>
+        <h3 class="card-title">Shooting Star Theme</h3>
+        <p class="card-desc">A vibrant meteor shower across the screen; tap a shooting star to make a sacred wish.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-47.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-47.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=47" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-47.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="48" data-title="astronaut love story" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#48</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🚀</div>
+        <h3 class="card-title">Astronaut Love Story</h3>
+        <p class="card-desc">Deep space telescope viewport with nebulae, satellite solar panels, and floating rings.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-48.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-48.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=48" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-48.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="49" data-title="black hole portal reveal" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#49</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🕳️</div>
+        <h3 class="card-title">Black Hole Portal Reveal</h3>
+        <p class="card-desc">Gravitational lensing photon rings warp space and time, unleashing the wedding sanctuary.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Midnight Starlight</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-49.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-49.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=49" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-49.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="cosmic" data-tid="50" data-title="celestial kingdom" data-scratch="moon-surface">
+      <div class="card-header">
+        <span class="card-id">#50</span>
+        <span class="card-badge" style="border-color: #4facfe; color: #4facfe;">🌌 Cosmic Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">☀️</div>
+        <h3 class="card-title">Celestial Kingdom</h3>
+        <p class="card-desc">A total solar eclipse with a diamond-ring corona crowning the couple's union.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Moon Surface</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-50.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-50.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=50" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-50.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="51" data-title="venice romance" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#51</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🛶</div>
+        <h3 class="card-title">Venice Romance</h3>
+        <p class="card-desc">A sunset gondola journey along Venice's Grand Canal with historic palazzo reflections.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Wine Rose</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-51.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-51.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=51" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-51.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="52" data-title="paris love story" data-scratch="rose-petal">
+      <div class="card-header">
+        <span class="card-id">#52</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🗼</div>
+        <h3 class="card-title">Paris Love Story</h3>
+        <p class="card-desc">The Eiffel Tower sparkling under Parisian twilight with accordion strings and café charm.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Rose Petal</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Wine Rose</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-52.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-52.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=52" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-52.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="53" data-title="swiss alps wedding" data-scratch="crystal-layer">
+      <div class="card-header">
+        <span class="card-id">#53</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏔️</div>
+        <h3 class="card-title">Swiss Alps Wedding</h3>
+        <p class="card-desc">Glacier Express panoramic mountain train gliding past snowcapped Alpine peaks.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Crystal Layer</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-53.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-53.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=53" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-53.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="54" data-title="santorini wedding" data-scratch="silk-curtain">
+      <div class="card-header">
+        <span class="card-id">#54</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏛️</div>
+        <h3 class="card-title">Santorini Wedding</h3>
+        <p class="card-desc">Iconic whitewashed caldera cliffside villas, cobalt-blue domes, and Aegean vistas.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Silk Curtain</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-54.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-54.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=54" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-54.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="55" data-title="maldives beach wedding" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#55</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏖️</div>
+        <h3 class="card-title">Maldives Beach Wedding</h3>
+        <p class="card-desc">Overwater thatch bungalows over turquoise crystalline lagoons and soft sunset waves.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-55.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-55.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=55" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-55.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="56" data-title="luxury cruise wedding" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#56</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🚢</div>
+        <h3 class="card-title">Luxury Cruise Wedding</h3>
+        <p class="card-desc">A gleaming superyacht gliding toward a golden horizon sunset with celebratory horn.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Silver Diamond</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-56.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-56.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=56" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-56.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="57" data-title="dubai royal wedding" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#57</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🏙️</div>
+        <h3 class="card-title">Dubai Royal Wedding</h3>
+        <p class="card-desc">Burj Khalifa laser projections and dancing choreographed fountain gala under starlight.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-57.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-57.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=57" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-57.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="58" data-title="japanese sakura wedding" data-scratch="flower-layer">
+      <div class="card-header">
+        <span class="card-id">#58</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">⛩️</div>
+        <h3 class="card-title">Japanese Sakura Wedding</h3>
+        <p class="card-desc">Traditional scarlet Torii gate, weeping cherry blossoms, and a serene koi water garden.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Flower Layer</span>
+          <span class="meta-tag">🎬 Opening: Call</span>
+          <span class="meta-tag">🎨 Palette: Pastel Clouds</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-58.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-58.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=58" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-58.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="59" data-title="arabian nights palace" data-scratch="mehendi">
+      <div class="card-header">
+        <span class="card-id">#59</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">🕌</div>
+        <h3 class="card-title">Arabian Nights Palace</h3>
+        <p class="card-desc">Flying magic carpet over golden desert sand dunes toward an oasis palace of brass lanterns.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Mehendi</span>
+          <span class="meta-tag">🎬 Opening: Envelope</span>
+          <span class="meta-tag">🎨 Palette: Terracotta Marigold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-59.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-59.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=59" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-59.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    <div class="template-card" data-collection="destination" data-tid="60" data-title="ultimate luxury multi-scene invitation" data-scratch="gold-leaf">
+      <div class="card-header">
+        <span class="card-id">#60</span>
+        <span class="card-badge" style="border-color: #43e97b; color: #43e97b;">✈️ Destination Collection</span>
+      </div>
+      <div class="card-body">
+        <div class="card-icon">👑</div>
+        <h3 class="card-title">Ultimate Luxury Multi-Scene Invitation</h3>
+        <p class="card-desc">Flagship experience: Seamless cinematic transitions through Palace ➔ Garden ➔ Moonlight ➔ Waterfall ➔ Star Sky ➔ Mandap with heavy Three.js effects.</p>
+        <div class="card-meta">
+          <span class="meta-tag">✨ Foil: Gold Leaf</span>
+          <span class="meta-tag">🎬 Opening: Doors</span>
+          <span class="meta-tag">🎨 Palette: Crimson Gold</span>
+        </div>
+        <div class="card-url-box">
+          <code>template-60.html</code>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="template-60.html" class="btn btn-primary" target="_blank" rel="noopener">👁️ Live Invite</a>
+        <a href="index.html?template=60" class="btn btn-secondary">✏️ Customize</a>
+        <button class="btn btn-copy" onclick="copyLink('https://urvashizoopcoder-hub.github.io/ElegantWeddingTemplate/template-60.html', this)" title="Copy separate public URL">📋 Copy URL</button>
+      </div>
+    </div>
+    
+    </div>
+  </main>
+
+  <div id="toast" class="toast">URL copied to clipboard!</div>
+
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.template-card');
+    const searchInput = document.getElementById('searchInput');
+    const toast = document.getElementById('toast');
+
+    let currentFilter = 'all';
+
+    function filterCards() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const matchesFilter = (currentFilter === 'all') || (card.dataset.collection === currentFilter);
+        const textContent = (card.dataset.title + ' ' + card.dataset.scratch + ' ' + card.innerText).toLowerCase();
+        const matchesSearch = query === '' || textContent.includes(query);
+
+        if (matchesFilter && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        filterCards();
+      });
+    });
+
+    searchInput.addEventListener('input', filterCards);
+
+    function copyLink(url, btn) {
+      navigator.clipboard.writeText(url).then(() => {
+        const origText = btn.innerHTML;
+        btn.innerHTML = '✓ Copied!';
+        btn.classList.add('copied');
+        showToast('Direct URL copied: ' + url);
+        setTimeout(() => {
+          btn.innerHTML = origText;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        prompt("Copy URL:", url);
+      });
+    }
+
+    function showToast(msg) {
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
