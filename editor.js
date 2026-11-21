@@ -221,7 +221,7 @@
 
     return {
       theme: selectedThemeInput.value || 'emerald-gold',
-      openingExperience: openingExperienceSelect.value || 'doors',
+      openingExperience: openingExperienceSelect.value || 'call',
       grandTitle: (f.grand_title.value || 'Grand Ballroom Starlight Wedding').trim(),
       groom: (f.groom_name.value || 'Ranveer').trim(),
       bride: (f.bride_name.value || 'Shanaya').trim(),

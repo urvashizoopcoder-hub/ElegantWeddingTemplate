@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // State Management with Ranveer & Shanaya Default Request Data
   const state = {
     theme: 'emerald-gold',
-    openingExperience: 'doors',
+    openingExperience: 'call',
     grandTitle: 'Grand Ballroom Starlight Wedding',
     bride: 'Shanaya',
     groom: 'Ranveer',
@@ -81,10 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // DOM Elements
   const callScreen = document.getElementById('callScreen');
-  const callAcceptBtn = document.getElementById('callAcceptBtn');
-  const callDeclineBtn = document.getElementById('callDeclineBtn');
   const callCoupleName = document.getElementById('callCoupleName');
-  const callInitials = document.getElementById('callInitials');
+  const sliderTrack = document.getElementById('sliderTrack');
+  const sliderHandle = document.getElementById('sliderHandle');
+  const sliderText = document.getElementById('sliderText');
+  const magicTapPill = document.getElementById('magicTapPill');
+  const callRemindBtn = document.getElementById('callRemindBtn');
+  const callMessageBtn = document.getElementById('callMessageBtn');
 
   const vaultSection = document.getElementById('vaultSection');
   const ringsClasp = document.getElementById('ringsClasp');
@@ -276,23 +279,125 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Incoming call accept
-  if (callAcceptBtn) {
-    callAcceptBtn.addEventListener('click', () => {
-      callScreen.classList.add('call-accepted');
+  // ==========================================================
+  // iOS SLIDE TO ANSWER CALL LOGIC (Matching User Reference)
+  // ==========================================================
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslateX = 0;
+  let callAnswered = false;
+
+  function getMaxSlide() {
+    if (!sliderTrack || !sliderHandle) return 240;
+    return Math.max(80, sliderTrack.offsetWidth - sliderHandle.offsetWidth - 8);
+  }
+
+  function answerCallWithAnimation() {
+    if (callAnswered) return;
+    callAnswered = true;
+    const maxSlide = getMaxSlide();
+    if (sliderHandle) {
+      sliderHandle.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+      sliderHandle.style.transform = `translateX(${maxSlide}px)`;
+    }
+    if (sliderText) sliderText.style.opacity = '0';
+    playGoldenChime();
+    
+    setTimeout(() => {
+      if (callScreen) callScreen.classList.add('call-accepted');
       setTimeout(() => {
-        callScreen.hidden = true;
+        if (callScreen) callScreen.hidden = true;
         openVaultDoors();
-      }, 500);
+      }, 480);
+    }, 280);
+  }
+
+  function startDrag(clientX) {
+    if (callAnswered || state.doorsOpened) return;
+    isDragging = true;
+    startX = clientX;
+    if (sliderHandle) sliderHandle.style.transition = 'none';
+  }
+
+  function moveDrag(clientX) {
+    if (!isDragging || callAnswered) return;
+    const maxSlide = getMaxSlide();
+    const deltaX = clientX - startX;
+    currentTranslateX = Math.max(0, Math.min(deltaX, maxSlide));
+    if (sliderHandle) sliderHandle.style.transform = `translateX(${currentTranslateX}px)`;
+    if (sliderText) {
+      sliderText.style.opacity = Math.max(0, 1 - (currentTranslateX / (maxSlide * 0.75)));
+    }
+  }
+
+  function endDrag() {
+    if (!isDragging || callAnswered) return;
+    isDragging = false;
+    const maxSlide = getMaxSlide();
+    if (currentTranslateX >= maxSlide * 0.55) {
+      answerCallWithAnimation();
+    } else {
+      if (sliderHandle) {
+        sliderHandle.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        sliderHandle.style.transform = 'translateX(0px)';
+      }
+      if (sliderText) {
+        sliderText.style.transition = 'opacity 0.3s ease';
+        sliderText.style.opacity = '1';
+      }
+      currentTranslateX = 0;
+    }
+  }
+
+  if (sliderHandle && sliderTrack) {
+    // Mouse events
+    sliderHandle.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startDrag(e.clientX);
+    });
+    window.addEventListener('mousemove', (e) => { if (isDragging) moveDrag(e.clientX); });
+    window.addEventListener('mouseup', () => { if (isDragging) endDrag(); });
+
+    // Touch events (Mobile)
+    sliderHandle.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) startDrag(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches && e.touches[0]) moveDrag(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', () => { if (isDragging) endDrag(); });
+    window.addEventListener('touchcancel', () => { if (isDragging) endDrag(); });
+
+    // Click on track to auto-answer
+    sliderTrack.addEventListener('click', (e) => {
+      if (!isDragging && !callAnswered) {
+        answerCallWithAnimation();
+      }
     });
   }
-  if (callDeclineBtn) {
-    callDeclineBtn.addEventListener('click', () => {
-      callScreen.classList.add('call-accepted');
+
+  // "Tap to feel the magic" Pill Click
+  if (magicTapPill) {
+    magicTapPill.addEventListener('click', () => {
+      if (!callAnswered) answerCallWithAnimation();
+    });
+  }
+
+  // Remind Me Action
+  if (callRemindBtn) {
+    callRemindBtn.addEventListener('click', () => {
+      alert(`⏰ Reminder set for ${state.groom} & ${state.bride}'s Royal Wedding on ${state.dayName}, ${state.dateNum} ${state.monthYear}!`);
+    });
+  }
+
+  // Message Action (Scrolls to RSVP)
+  if (callMessageBtn) {
+    callMessageBtn.addEventListener('click', () => {
+      answerCallWithAnimation();
       setTimeout(() => {
-        callScreen.hidden = true;
-        openVaultDoors();
-      }, 300);
+        const rsvpSec = document.getElementById('rsvpSection');
+        if (rsvpSec) rsvpSec.scrollIntoView({ behavior: 'smooth' });
+      }, 850);
     });
   }
 
@@ -300,6 +405,15 @@ document.addEventListener('DOMContentLoaded', () => {
     replayVaultBtn.addEventListener('click', () => {
       vaultSection.classList.remove('doors-open');
       state.doorsOpened = false;
+      callAnswered = false;
+      if (sliderHandle) {
+        sliderHandle.style.transition = 'none';
+        sliderHandle.style.transform = 'translateX(0px)';
+      }
+      if (sliderText) {
+        sliderText.style.transition = 'none';
+        sliderText.style.opacity = '1';
+      }
       if (state.openingExperience === 'call') {
         callScreen.hidden = false;
         callScreen.classList.remove('call-accepted');
@@ -491,7 +605,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (state.openingExperience === 'call') {
         callScreen.hidden = false;
         if (callCoupleName) callCoupleName.textContent = `${state.groom} & ${state.bride}`;
-        if (callInitials) callInitials.textContent = `${state.groom[0]} & ${state.bride[0]}`;
       } else {
         callScreen.hidden = true;
       }

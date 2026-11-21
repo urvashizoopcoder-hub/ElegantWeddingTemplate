@@ -227,25 +227,66 @@ html, body {
 .invitation-scroll-area::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.4); border-radius: 10px; }
 
 /* ==========================================================
-   INCOMING CALL SCREEN (OPTION A)
+   INCOMING CALL SCREEN (LUXURY iOS SLIDE TO ANSWER STYLE)
    ========================================================== */
 .incoming-call-screen {
   position: absolute;
   inset: 0;
   z-index: 80;
-  background: linear-gradient(180deg, #191410 0%, #2a1f18 50%, #15100c 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 24px 60px;
+  padding: 45px 20px 20px;
   color: #fff;
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .incoming-call-screen.call-accepted {
   opacity: 0;
   transform: scale(1.08);
   pointer-events: none;
+}
+
+/* Background Couple Image */
+.call-backdrop-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/call_bg_couple.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  z-index: 1;
+  filter: brightness(0.9) contrast(1.05);
+  transform: scale(1.02);
+  transition: transform 3s ease-out;
+}
+.incoming-call-screen:hover .call-backdrop-image {
+  transform: scale(1.05);
+}
+
+.call-backdrop-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: 
+    linear-gradient(180deg, 
+      rgba(15, 8, 12, 0.5) 0%, 
+      rgba(25, 12, 18, 0.1) 30%, 
+      rgba(45, 18, 28, 0.38) 55%, 
+      rgba(35, 14, 22, 0.78) 78%, 
+      rgba(20, 8, 14, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Top Caller Info */
+.call-top-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
 .call-security-badge {
   display: inline-flex;
@@ -254,103 +295,240 @@ html, body {
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--gold-accent);
-  background: rgba(212, 175, 55, 0.12);
+  color: #f7dfa5;
+  background: rgba(30, 15, 20, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-}
-.caller-profile-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.caller-avatar-ring {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
-}
-.caller-avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #d4af37, #8c6d23);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  border: 3px solid #fff;
-}
-.caller-initials {
-  font-family: var(--font-script);
-  font-size: 42px;
-  color: #fff;
-}
-.ring-pulse-halo {
-  position: absolute;
-  inset: -12px;
-  border-radius: 50%;
-  border: 2px solid rgba(212, 175, 55, 0.6);
-  animation: callRingPulse 1.8s infinite ease-out;
-}
-@keyframes callRingPulse {
-  0% { transform: scale(0.9); opacity: 0.9; }
-  100% { transform: scale(1.35); opacity: 0; }
+  border: 1px solid rgba(247, 223, 165, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 12px;
 }
 .caller-name {
   font-family: var(--font-script);
-  font-size: 44px;
-  color: var(--gold-accent);
+  font-size: 46px;
+  color: #fff;
   line-height: 1.1;
-  margin-bottom: 6px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.4);
+  margin-bottom: 4px;
 }
 .caller-status {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 1px;
-  animation: textBlink 1.5s infinite;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  animation: callStatusPulse 1.8s infinite ease-in-out;
 }
-@keyframes textBlink { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+@keyframes callStatusPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
 
-.call-actions-row {
-  display: flex;
-  justify-content: space-around;
+/* Bottom Controls Matching User's Screenshot */
+.call-bottom-controls {
+  position: relative;
+  z-index: 5;
   width: 100%;
-  max-width: 280px;
-}
-.call-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* "Tap to feel the magic" Pill Badge */
+.magic-tap-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9999px;
+  padding: 7px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 22px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  animation: magicPillGlow 2.5s infinite ease-in-out;
+}
+.magic-tap-pill:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+@keyframes magicPillGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25); }
+  50% { box-shadow: 0 4px 22px rgba(255, 220, 140, 0.45); }
+}
+
+/* Quick Secondary Action Buttons (Remind Me & Message) */
+.call-secondary-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: 22px;
+}
+.action-circle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
-}
-.call-btn svg {
-  width: 60px;
-  height: 60px;
-  padding: 16px;
-  border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease;
 }
-.call-btn:hover svg {
-  transform: scale(1.1);
+.action-circle-btn:hover {
+  transform: translateY(-2px);
 }
-.decline-btn svg {
-  background: #ea4335;
+.action-circle-btn:active {
+  transform: scale(0.95);
 }
-.accept-btn svg {
-  background: #25d366;
-  animation: acceptBounce 1.4s infinite ease-in-out;
+.circle-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
-@keyframes acceptBounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+.action-circle-btn:hover .circle-icon-wrap {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.circle-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+}
+.action-btn-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 7px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Slide To Answer Slider Track */
+.slide-to-answer-track {
+  position: relative;
+  width: 100%;
+  max-width: 310px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Shimmering Text "slide to answer" */
+.slider-shimmer-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  text-align: center;
+  margin-left: 36px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideShimmer 2.2s infinite linear;
+  transition: opacity 0.2s ease;
+}
+.slider-shimmer-text strong {
+  font-weight: 600;
+}
+@keyframes slideShimmer {
+  0% { background-position: -150% 0; }
+  100% { background-position: 150% 0; }
+}
+
+/* Slider Handle (White circle with green phone icon) */
+.slider-handle {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  z-index: 10;
+  transition: transform 0.05s linear;
+}
+.slider-handle:active {
+  cursor: grabbing;
+}
+.handle-phone-icon {
+  width: 26px;
+  height: 26px;
+  stroke: #22c55e;
+  fill: #22c55e;
+  transform: rotate(15deg);
+  transition: transform 0.2s ease;
+}
+.slider-handle:hover .handle-phone-icon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* Pulsing Ripple Rings on Handle */
+.handle-pulse-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(34, 197, 94, 0.7);
+  animation: handlePulse 1.8s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes handlePulse {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* iOS Home Indicator Bar */
+.ios-home-indicator {
+  width: 135px;
+  height: 4.5px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  margin: 18px auto 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================

@@ -60,33 +60,57 @@
     <div class="phone-frame" id="phoneFrame">
 
       <!-- ==============================================
-           OPENING OPTION A: INCOMING ROYAL WEDDING CALL SCREEN
+           OPENING OPTION A: INCOMING ROYAL WEDDING CALL SCREEN (iOS LUXURY STYLE)
            ============================================== -->
-      <div class="incoming-call-screen" id="callScreen" hidden>
-        <div class="call-top-meta">
-          <span class="call-security-badge"><i data-lucide="shield-check"></i> Private Wedding Invitation</span>
-        </div>
-        
-        <div class="caller-profile-wrap">
-          <div class="caller-avatar-ring">
-            <div class="caller-avatar" id="callAvatar">
-              <span class="caller-initials" id="callInitials">R &amp; S</span>
-            </div>
-            <div class="ring-pulse-halo"></div>
-          </div>
+      <div class="incoming-call-screen" id="callScreen">
+        <!-- Background Couple Photo with Romantic Vignette -->
+        <div class="call-backdrop-image" id="callBackdrop"></div>
+        <div class="call-backdrop-gradient"></div>
+
+        <!-- Top Header & Caller Meta -->
+        <div class="call-top-content">
+          <div class="call-security-badge"><i data-lucide="sparkles"></i> Royal Wedding Invitation</div>
           <h2 class="caller-name" id="callCoupleName">Ranveer &amp; Shanaya</h2>
           <p class="caller-status" id="callStatusText">Incoming Royal Wedding Call…</p>
         </div>
 
-        <div class="call-actions-row">
-          <button class="call-btn decline-btn" id="callDeclineBtn">
-            <i data-lucide="phone-off"></i>
-            <span>Decline</span>
-          </button>
-          <button class="call-btn accept-btn" id="callAcceptBtn">
-            <i data-lucide="phone-incoming"></i>
-            <span>Accept Call</span>
-          </button>
+        <!-- Center & Bottom iOS Controls Matching User's Screenshot -->
+        <div class="call-bottom-controls">
+          <!-- "Tap to feel the magic" Pill Badge -->
+          <div class="magic-tap-pill" id="magicTapPill" role="button" tabindex="0" title="Tap to feel the magic">
+            <span>✨ Tap to feel the magic</span>
+          </div>
+
+          <!-- Quick Secondary Action Buttons: Remind Me & Message -->
+          <div class="call-secondary-actions">
+            <button type="button" class="action-circle-btn" id="callRemindBtn">
+              <div class="circle-icon-wrap">
+                <i data-lucide="alarm-clock"></i>
+              </div>
+              <span class="action-btn-label">Remind Me</span>
+            </button>
+
+            <button type="button" class="action-circle-btn" id="callMessageBtn">
+              <div class="circle-icon-wrap">
+                <i data-lucide="message-circle"></i>
+              </div>
+              <span class="action-btn-label">Message</span>
+            </button>
+          </div>
+
+          <!-- Slide to Answer Slider Track -->
+          <div class="slide-to-answer-track" id="sliderTrack" title="Slide right to answer call">
+            <div class="slider-shimmer-text" id="sliderText">
+              <strong>slide</strong> to answer
+            </div>
+            <div class="slider-handle" id="sliderHandle">
+              <div class="handle-pulse-ring"></div>
+              <i data-lucide="phone" class="handle-phone-icon"></i>
+            </div>
+          </div>
+
+          <!-- iOS Home Indicator Bar -->
+          <div class="ios-home-indicator"></div>
         </div>
       </div>
 
