@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Customize Your Royal Wedding Invitation — Bespoke Studio</title>
+
+<script>
+  // If guest is opening a share link with invitation data, open the invitation directly
+  if (window.location.hash && window.location.hash.includes('data=')) {
+    window.location.replace('invite.html' + window.location.hash);
+  }
+</script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Josefin+Sans:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <span class="brand__mono">❦</span>
+    <div>
+      <b>Royal Palace</b>
+      <small>Bespoke Wedding Invitation Studio</small>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button type="button" class="tab on" data-view="form">✎ Edit Details</button>
+    <button type="button" class="tab" data-view="preview">👁 Live Preview</button>
+  </nav>
+</header>
+
+<div class="wrap">
+<form class="panel" id="ed" autocomplete="off" novalidate>
+  <p class="intro">
+    Customize your bespoke royal wedding invitation below. Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
+  </p>
+
+  <!-- ==============================================
+       1. THEME & EXPERIENCE SELECTION
+       ============================================== -->
+  <details class="grp" open><summary>🎨 Select Wedding Theme / Style</summary>
+    
+    <label>Color Palette Theme:</label>
+    <div class="theme-swatches-grid" id="themeGrid">
+      <div class="theme-pill-btn active" data-theme="emerald-gold">
+        <div class="color-dots"><span class="color-dot" style="background:#2d4a3e"></span><span class="color-dot" style="background:#d4af37"></span></div>
+        <span>Emerald &amp; Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="wine-rose">
+        <div class="color-dots"><span class="color-dot" style="background:#6e1c36"></span><span class="color-dot" style="background:#e0a899"></span></div>
+        <span>Wine &amp; Rose Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="midnight-starlight">
+        <div class="color-dots"><span class="color-dot" style="background:#131d36"></span><span class="color-dot" style="background:#f4e29f"></span></div>
+        <span>Midnight &amp; Starlight</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="pastel-clouds">
+        <div class="color-dots"><span class="color-dot" style="background:#eddcd9"></span><span class="color-dot" style="background:#b88c7d"></span></div>
+        <span>Pastel Clouds</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="terracotta-marigold">
+        <div class="color-dots"><span class="color-dot" style="background:#c35831"></span><span class="color-dot" style="background:#f5a623"></span></div>
+        <span>Terracotta &amp; Marigold</span>
+      </div>
+    </div>
+    <input type="hidden" name="color_theme" id="selectedTheme" value="emerald-gold">
+
+    <div class="row2">
+      <div class="option-select-row">
+        <label>Opening Experience</label>
+        <select name="opening_experience" id="openingExperienceSelect">
+          <option value="doors" selected>🚪 3D Royal Vault Opening Doors</option>
+          <option value="call">📞 Incoming Royal Wedding Call</option>
+        </select>
+      </div>
+
+      <div class="option-select-row">
+        <label>Viewing Experience</label>
+        <select name="viewing_experience" id="viewingExperienceSelect">
+          <option value="scroll" selected>📜 Royal Palace Scroll Mode</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="option-select-row">
+      <label>Ambient Magic Particles</label>
+      <select name="ambient_particles" id="ambientParticlesSelect">
+        <option value="floral" selected>🎉 Celebratory Floral Burst</option>
+        <option value="gold-dust">✨ Golden Stardust</option>
+      </select>
+    </div>
+
+  </details>
+
+  <!-- ==============================================
+       2. COUPLE & FAMILY BLESSINGS
+       ============================================== -->
+  <details class="grp" open><summary>💑 Grand Title &amp; The Couple</summary>
+    
+    <label>Grand Wedding Title *<input name="grand_title" value="Grand Ballroom Starlight Wedding" maxlength="90" required></label>
+    
+    <div class="row2">
+      <label>Groom's first name *<input name="groom_name" value="Ranveer" maxlength="30" required></label>
+      <label>Bride's first name *<input name="bride_name" value="Shanaya" maxlength="30" required></label>
+    </div>
+
+    <div class="row2">
+      <label>Groom's full name *<input name="groom_full_name" value="Ranveer Mittal" maxlength="60" required></label>
+      <label>Bride's full name *<input name="bride_full_name" value="Shanaya Jindal" maxlength="60" required></label>
+    </div>
+
+    <label>Groom's parents <i>(optional blessing line)</i><input name="groom_parents" value="Son of Mr. Sunil Mittal & Mrs. Rekha Mittal" maxlength="120" placeholder="Son of Mr. … & Mrs. …"></label>
+    <label>Bride's parents <i>(optional blessing line)</i><input name="bride_parents" value="Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal" maxlength="120" placeholder="Daughter of Mr. … & Mrs. …"></label>
+
+    <div class="photo-upload-grid">
+      <div class="photo-slot" id="slotGroomPhoto">
+        <input type="file" accept="image/*" data-photo="groom_photo">
+        <div class="photo-slot-title">Groom photo</div>
+        <div class="photo-slot-hint">(optional) · Upload</div>
+      </div>
+      <div class="photo-slot" id="slotBridePhoto">
+        <input type="file" accept="image/*" data-photo="bride_photo">
+        <div class="photo-slot-title">Bride photo</div>
+        <div class="photo-slot-hint">(optional) · Upload</div>
+      </div>
+      <div class="photo-slot" id="slotCoverPhoto">
+        <input type="file" accept="image/*" data-photo="cover_image">
+        <div class="photo-slot-title">Cover photo</div>
+        <div class="photo-slot-hint">for opening call screen</div>
+      </div>
+    </div>
+    <p class="note" style="font-size:11.5px; color:#8c5b67; margin-top:4px;">Leave photos empty to enjoy our curated royal heritage artwork.</p>
+
+  </details>
+
+  <!-- ==============================================
+       3. EVENT DATE & SANCTUARY VENUE
+       ============================================== -->
+  <details class="grp" open><summary>📅 Event Date &amp; Sanctuary Venue</summary>
+    
+    <div class="row2">
+      <label>Event Date *<input type="date" name="event_date" value="2027-11-25" required></label>
+      <label>Time <i>(optional)</i><input type="time" name="event_time" value="19:00"></label>
+    </div>
+
+    <label>Sanctuary / Venue Name *<input name="venue" value="The Taj Mahal Palace Ballroom, Mumbai" maxlength="90" required></label>
+    <label>Venue Address <i>(optional)</i><input name="venue_address" value="Apollo Bunder, Colaba, Mumbai, Maharashtra 400001" maxlength="140"></label>
+    <label>Google Maps Link <i>(optional — auto-generated if empty)</i><input type="url" name="venue_map_url" value="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai" placeholder="https://maps.app.goo.gl/…"></label>
+
+  </details>
+
+  <!-- ==============================================
+       4. SACRED CEREMONIES / FUNCTIONS
+       ============================================== -->
+  <details class="grp" open id="ceremoniesGroup"><summary>🪔 Sacred Ceremonies &amp; Functions</summary>
+    
+    <div id="ceremoniesList">
+      <!-- Dynamically generated ceremony cards will render here -->
+    </div>
+
+    <div class="ceremony-actions-bar">
+      <button type="button" class="btn btn--soft" id="addCeremonyBtn">＋ Add Ceremony</button>
+      <select id="quickCeremonyPreset" aria-label="Quick add preset ceremony">
+        <option value="">Quick add preset ceremony…</option>
+        <option>The Sangeet Spectacular</option>
+        <option>Baraat & Varmala Ceremony</option>
+        <option>Sacred Pheras & Matrimony</option>
+        <option>Royal Governors Reception</option>
+        <option>Haldi Ceremony</option>
+        <option>Mehendi Carnival</option>
+        <option>Welcome Cocktail & Dinner</option>
+        <option>Ring Exchange & Engagement</option>
+      </select>
+    </div>
+
+  </details>
+
+  <!-- ==============================================
+       5. GUEST & DISPATCH
+       ============================================== -->
+  <details class="grp" open><summary>✅ Guest &amp; WhatsApp / Email Dispatch</summary>
+    
+    <label>Invitee / Guest Name *<input name="guest_name" value="Dr. Ayan & Family" maxlength="60" required placeholder="e.g. The Ambani Family or Dr. Ayan & Family"></label>
+    
+    <div class="row2">
+      <label>Guest WhatsApp Number * <i>(with country code)</i><input type="tel" name="rsvp_whatsapp" value="+971501234567" inputmode="tel" placeholder="+971501234567" maxlength="18" required></label>
+      <label>Guest Email Address <i>(optional)</i><input type="email" name="guest_email" value="guest@example.com" placeholder="guest@example.com"></label>
+    </div>
+
+    <label class="tog"><input type="checkbox" name="music_enabled" checked><span></span>Background music (royal soundtrack)</label>
+
+  </details>
+
+  <!-- ACTION BUTTONS -->
+  <div class="actions">
+    <button type="button" class="btn btn--ghost" id="resetToPresetBtn">Reset to Preset</button>
+    <button type="button" class="btn btn--ghost" id="clearAllBtn">Clear All</button>
+  </div>
+
+  <p class="err" id="err" hidden></p>
+  <button type="button" class="btn btn--main" id="createBtn">✨ Create &amp; Finalize My Invitation</button>
+
+</form>
+
+<!-- RIGHT COLUMN: LIVE INTERACTIVE PREVIEW -->
+<section class="preview" id="preview">
+  <div class="phone">
+    <div class="phone__notch"></div>
+    <iframe id="pv" title="Live Invitation Preview" src="invite.html"></iframe>
+  </div>
+  <p class="pvnote">Live interactive preview · tap crest or answer call to view animations</p>
+</section>
+</div>
+
+<!-- INVITATION READY SHARE SHEET -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__card">
+    <button type="button" class="sheet__x" id="sheetX" aria-label="Close">×</button>
+    <div class="sheet__tick">✓</div>
+    <h2>Your invitation is ready!</h2>
+    <p>Everything you customized is encoded into your private link. Deliver it directly to your guest's WhatsApp number or email:</p>
+    
+    <div class="link">
+      <input id="shareUrl" readonly aria-label="Your invitation link">
+      <button type="button" class="btn btn--main" id="copyBtn">Copy</button>
+    </div>
+
+    <div class="sheet__btns">
+      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">
+        <span>💬 Send via WhatsApp directly to <span id="sheetWaNum">+971501234567</span></span>
+      </a>
+      <a class="btn btn--email" id="emailShare" target="_blank" rel="noopener">
+        <span>✉️ Send via Email to <span id="sheetEmailAddr">guest@example.com</span></span>
+      </a>
+      <a class="btn btn--ghost" id="openLink" target="_blank" rel="noopener">
+        <span>Open full invitation experience ↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CEREMONY CARD TEMPLATE -->
+<template id="ceremonyCardTemplate">
+  <div class="ceremony-card">
+    <div class="ceremony-head">
+      <span class="ceremony-title-label">Ceremony 1</span>
+      <button type="button" class="ceremony-remove-btn" aria-label="Remove ceremony">Remove</button>
+    </div>
+
+    <label>Ceremony Name *<input data-k="name" maxlength="60" required></label>
+    
+    <div class="row2">
+      <label>Date *<input type="date" data-k="date" required></label>
+      <label>Time<input type="time" data-k="time"></label>
+    </div>
+
+    <label>Venue Location <i>(leave empty to use main sanctuary)</i><input data-k="venue" maxlength="90"></label>
+    <label>Map Link <i>(optional)</i><input type="url" data-k="map_url" placeholder="https://maps.google.com/…"></label>
+
+    <div class="row2">
+      <label>Dress Code <i>(optional)</i><input data-k="dress" maxlength="50" placeholder="e.g. Royal Indian Aristocratic"></label>
+      <label>Ceremony Note <i>(optional)</i><input data-k="note" maxlength="140" placeholder="e.g. Sangeet performances & gala banquet"></label>
+    </div>
+  </div>
+</template>
+
+<script src="editor.js"></script>
+</body>
+</html>

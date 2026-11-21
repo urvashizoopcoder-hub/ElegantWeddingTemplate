@@ -1,0 +1,5 @@
+# Video frames & source video
+video_frames/
+new_video_frames/
+*.mp4
+*.tmp
