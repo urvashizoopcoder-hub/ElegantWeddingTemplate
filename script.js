@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayFooterDate = document.getElementById('displayFooterDate');
   const displayFooterVenue = document.getElementById('displayFooterVenue');
   const dispatchQrImg = document.getElementById('dispatchQrImg');
-  const dockQrBtn = document.getElementById('dockQrBtn');
+  const dockAutoScrollBtn = document.getElementById('dockAutoScrollBtn');
 
   const displayFullDateLine = document.getElementById('displayFullDateLine');
   const displayDayName = document.getElementById('displayDayName');
@@ -385,6 +385,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       if (scrollDownBtn) scrollDownBtn.classList.add('pulse');
     }, 1500);
+
+    // Automatically trigger smooth cinematic scroll through royal invitation
+    triggerAutoScrollOnEnter();
   }
 
   if (ringsClasp) ringsClasp.addEventListener('click', openVaultDoors);
@@ -889,6 +892,11 @@ document.addEventListener('DOMContentLoaded', () => {
           colors: ['#d4af37', '#ffd700', '#f472b6', '#ffffff']
         });
       }
+
+      // Resume smooth auto-scroll after celebrating the revealed couple portrait
+      setTimeout(() => {
+        if (!autoScrollActive) startAutoScroll();
+      }, 2400);
     }
 
     function getCoords(e) {
@@ -1405,14 +1413,121 @@ document.addEventListener('DOMContentLoaded', () => {
   if (openDispatchBtn) openDispatchBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
   if (dockWhatsAppBtn) dockWhatsAppBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
   if (dockEmailBtn) dockEmailBtn.addEventListener('click', () => dispatchModal.classList.add('open'));
-  if (dockQrBtn) {
-    dockQrBtn.addEventListener('click', () => {
-      if (dispatchModal) {
-        dispatchModal.classList.add('open');
-        const qrEl = document.querySelector('.qr-share-section');
-        if (qrEl) qrEl.scrollIntoView({ behavior: 'smooth' });
+  
+  // ==========================================================
+  // BUTTERY CINEMATIC AUTO-SCROLL ENGINE
+  // ==========================================================
+  let autoScrollActive = false;
+  let autoScrollRaf = null;
+  let userInteractedTimeout = null;
+  let hasAutoStarted = false;
+  const scrollSpeed = 0.95; // pixels per frame
+
+  function getScrollContainer() {
+    const el = document.getElementById('invitationScrollArea');
+    if (el && el.scrollHeight > el.clientHeight + 10) return el;
+    const phone = document.getElementById('phoneFrame');
+    if (phone && phone.scrollHeight > phone.clientHeight + 10) return phone;
+    return window;
+  }
+
+  function doAutoScrollStep() {
+    if (!autoScrollActive) return;
+    const container = getScrollContainer();
+
+    // Check if nearing the scratch stage while still unscratched -> pause gently so guest can scratch
+    if (!scratchRevealed && scratchStage) {
+      const stageRect = scratchStage.getBoundingClientRect();
+      if (stageRect.top < window.innerHeight * 0.5 && stageRect.bottom > window.innerHeight * 0.15) {
+        pauseAutoScrollTemporarily(6000);
+        return;
       }
-    });
+    }
+
+    if (container === window) {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxScroll - 5) {
+        stopAutoScroll();
+        return;
+      }
+      window.scrollBy(0, scrollSpeed);
+    } else {
+      const maxScroll = container.scrollHeight - container.clientHeight;
+      if (container.scrollTop >= maxScroll - 5) {
+        stopAutoScroll();
+        return;
+      }
+      container.scrollTop += scrollSpeed;
+    }
+    autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
+  }
+
+  function startAutoScroll() {
+    if (autoScrollActive) return;
+    autoScrollActive = true;
+    updateAutoScrollBtnUI();
+    cancelAnimationFrame(autoScrollRaf);
+    autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
+  }
+
+  function stopAutoScroll() {
+    autoScrollActive = false;
+    cancelAnimationFrame(autoScrollRaf);
+    updateAutoScrollBtnUI();
+  }
+
+  function toggleAutoScroll() {
+    if (autoScrollActive) {
+      stopAutoScroll();
+    } else {
+      startAutoScroll();
+    }
+  }
+
+  function pauseAutoScrollTemporarily(delayMs = 3800) {
+    if (!autoScrollActive) return;
+    cancelAnimationFrame(autoScrollRaf);
+    clearTimeout(userInteractedTimeout);
+    userInteractedTimeout = setTimeout(() => {
+      if (autoScrollActive) {
+        autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
+      }
+    }, delayMs);
+  }
+
+  function updateAutoScrollBtnUI() {
+    if (!dockAutoScrollBtn) return;
+    if (autoScrollActive) {
+      dockAutoScrollBtn.innerHTML = `<i data-lucide="pause"></i> Pause Scroll`;
+      dockAutoScrollBtn.classList.add('active-scrolling');
+    } else {
+      dockAutoScrollBtn.innerHTML = `<i data-lucide="play"></i> Auto Scroll`;
+      dockAutoScrollBtn.classList.remove('active-scrolling');
+    }
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  // Hook touch & wheel to pause temporarily when user manually interacts
+  window.addEventListener('wheel', () => pauseAutoScrollTemporarily(), { passive: true });
+  window.addEventListener('touchstart', () => pauseAutoScrollTemporarily(), { passive: true });
+
+  const scrollAreaEl = document.getElementById('invitationScrollArea');
+  if (scrollAreaEl) {
+    scrollAreaEl.addEventListener('wheel', () => pauseAutoScrollTemporarily(), { passive: true });
+    scrollAreaEl.addEventListener('touchstart', () => pauseAutoScrollTemporarily(), { passive: true });
+  }
+
+  // Auto start when user enters invitation
+  function triggerAutoScrollOnEnter() {
+    if (hasAutoStarted) return;
+    hasAutoStarted = true;
+    setTimeout(() => {
+      startAutoScroll();
+    }, 1800);
+  }
+
+  if (dockAutoScrollBtn) {
+    dockAutoScrollBtn.addEventListener('click', toggleAutoScroll);
   }
   if (closeDispatchModalBtn) closeDispatchModalBtn.addEventListener('click', () => dispatchModal.classList.remove('open'));
   if (dispatchModal) {
