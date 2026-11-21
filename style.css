@@ -243,7 +243,7 @@ html, body {
   height: 840px;
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   background: var(--ivory-cream);
   -webkit-overflow-scrolling: touch;
 }
@@ -642,79 +642,70 @@ html, body {
   transform: scale(1);
 }
 
-/* Royal Pleated Swaged Drapes at Top */
+/* Royal Pleated Scalloped Valence Trim at Top Rim (Slim, Never Obscures Text) */
 .royal-drapes-canopy {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 125px;
+  height: 36px;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
-  z-index: 15;
+  z-index: 5;
 }
 .drape-swag {
   background: radial-gradient(ellipse at 50% 0%, #f5e4cc 0%, #dfc3a2 70%, #b89369 100%);
-  border-bottom: 2px solid rgba(197, 155, 39, 0.5);
-  box-shadow: 0 10px 20px rgba(120, 80, 20, 0.25);
+  border-bottom: 1.5px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 4px 10px rgba(120, 80, 20, 0.15);
 }
 .drape-center {
   position: relative;
-  width: 60%;
-  height: 75px;
-  border-radius: 0 0 100px 100px;
+  width: 50%;
+  height: 22px;
+  border-radius: 0 0 30px 30px;
   margin: 0 auto;
 }
 .canopy-gold-fringe {
   position: absolute;
-  bottom: -4px;
+  bottom: -3px;
   left: 10%;
   right: 10%;
-  height: 6px;
-  background: repeating-linear-gradient(90deg, #d4af37 0px, #d4af37 4px, transparent 4px, transparent 8px);
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #d4af37 0px, #d4af37 3px, transparent 3px, transparent 6px);
 }
 .canopy-chandelier-festoon {
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 17;
-  font-size: 16px;
-  color: var(--gold-accent);
-  letter-spacing: 6px;
-  text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
-  pointer-events: none;
+  display: none !important;
 }
 .drape-left, .drape-right {
   width: 25%;
-  height: 120px;
+  height: 30px;
 }
 .drape-left {
-  border-radius: 0 0 70px 0;
+  border-radius: 0 0 20px 0;
 }
 .drape-right {
-  border-radius: 0 0 0 70px;
+  border-radius: 0 0 0 20px;
 }
 
 /* Courtyard Hero Content */
 .courtyard-hero-content {
   position: relative;
-  z-index: 16;
+  z-index: 10;
   text-align: center;
   width: 100%;
-  margin-top: 36px;
+  margin-top: 38px;
+  padding: 0 16px 20px;
 }
 .royal-sanctuary-crest {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .sanctuary-crown {
-  font-size: 22px;
+  font-size: 24px;
   filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.5));
   animation: floatSubtle 3s ease-in-out infinite;
 }
@@ -735,22 +726,26 @@ html, body {
   opacity: 0.85;
 }
 .heart-symbol {
-  font-size: 16px;
-  color: #3e2820;
+  font-size: 18px;
+  color: #8b1328;
   margin-bottom: 2px;
 }
 .sub-lead-text {
-  font-family: var(--font-serif);
-  font-size: 14px;
-  letter-spacing: 2.5px;
-  color: #6e5844;
-  text-transform: uppercase;
+  font-family: 'Cinzel', serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 3.5px !important;
+  color: #241014 !important;
+  text-transform: uppercase !important;
+  margin: 6px 0 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+  display: block !important;
 }
 .mini-ornament-line {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--gold-rich);
   margin: 4px 0 10px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 }
 
 .hero-couple-names {
@@ -758,17 +753,19 @@ html, body {
 }
 .hero-couple-names .name-line {
   font-family: 'Great Vibes', 'Alex Brush', cursive;
-  font-size: 60px;
+  font-size: 64px;
+  font-weight: 700;
   line-height: 1.1;
-  color: #4a1220;
-  background: linear-gradient(135deg, #741224 0%, #4a1220 50%, #b8860b 100%);
+  color: #3b0a14;
+  background: linear-gradient(135deg, #741224 0%, #3b0a14 55%, #b8860b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 .hero-couple-names .and-symbol {
   font-family: var(--font-serif);
   font-size: 26px;
+  font-weight: 700;
   font-style: italic;
   color: var(--gold-rich);
   line-height: 1;
@@ -776,73 +773,49 @@ html, body {
 }
 
 .hero-parents-blessings {
-  margin: 10px 0 14px;
+  margin: 12px auto 8px;
+  max-width: 340px;
 }
 .parent-line {
-  font-family: var(--font-serif);
-  font-size: 12px;
-  font-style: italic;
-  color: #726251;
-  line-height: 1.5;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #22120e !important;
+  line-height: 1.5 !important;
+  margin: 4px 0 !important;
+  letter-spacing: 0.3px !important;
+}
+.lead-invitation-message {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #381c15 !important;
+  line-height: 1.55 !important;
+  max-width: 300px !important;
+  margin: 14px auto 0 !important;
 }
 
-/* Classical Courtyard Fountain with Flowers */
-.courtyard-fountain-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 310px;
-  height: 150px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+/* ==========================================================
+   HIDE OVERLAPPING FOUNTAIN BASIN & ALL SOUND/SKIP CONTROLS
+   ========================================================== */
+.courtyard-fountain-wrap,
+.vault-top-controls,
+#skipOpeningBtn,
+#vaultSoundBtn,
+#musicToggleBtn,
+#pillSound,
+#pillMusic,
+.story-meta-pills,
+.vault-pill-btn,
+button[title*="Sound"],
+button[title*="Music"],
+.sound-toggle-btn {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
-.fountain-balustrade {
-  position: absolute;
-  bottom: 0;
-  width: 90%;
-  height: 20px;
-  background: repeating-linear-gradient(90deg, #dfd7c8 0, #dfd7c8 6px, #ede6d9 6px, #ede6d9 16px);
-  border-top: 3px solid #b8a994;
-  border-radius: 4px 4px 0 0;
-  opacity: 0.7;
-}
-.fountain-basin {
-  position: relative;
-  width: 150px;
-  height: 60px;
-  background: radial-gradient(ellipse at center, #8cb8be 0%, #4f8087 60%, #30585e 100%);
-  border: 4px solid #eae2d3;
-  border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 12px;
-  z-index: 5;
-}
-.water-jets {
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 28px;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(180, 230, 240, 0.4));
-  border-radius: 50% 50% 0 0;
-  animation: fountainSpritz 1.4s infinite alternate ease-in-out;
-}
-@keyframes fountainSpritz {
-  0% { height: 24px; opacity: 0.7; }
-  100% { height: 32px; opacity: 1; }
-}
-.fountain-flowers-left, .fountain-flowers-right {
-  position: absolute;
-  bottom: 4px;
-  font-size: 20px;
-  z-index: 6;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-}
-.fountain-flowers-left { left: 16px; }
-.fountain-flowers-right { right: 16px; }
 
 /* ==========================================================
    THE 3D EMBOSSED DOUBLE DOORS
@@ -1691,67 +1664,191 @@ html, body {
   max-width: 370px;
   margin: 0 auto;
 }
+/* ==========================================================
+   ANIMATED LUXURY CEREMONY TIMELINE CARDS
+   ========================================================== */
 .ceremony-timeline-card {
-  background: #fdfbf7;
-  border: 1px solid rgba(197, 155, 39, 0.35);
-  border-radius: 16px;
-  padding: 20px 18px;
-  text-align: left;
-  box-shadow: 0 6px 20px rgba(120, 90, 30, 0.06);
   position: relative;
-  transition: transform 0.2s ease;
+  background: linear-gradient(145deg, #ffffff 0%, #fdf9f4 60%, #faf1e4 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  text-align: left;
+  box-shadow: 0 10px 28px rgba(120, 60, 20, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  margin-bottom: 22px;
+  overflow: hidden;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  animation: ceremonyCardEntrance 0.6s ease-out backwards;
 }
+
+@keyframes ceremonyCardEntrance {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .ceremony-timeline-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(120, 90, 30, 0.12);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 36px rgba(120, 40, 20, 0.16), 0 0 20px rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.85);
 }
-.ceremony-card-name {
-  font-family: var(--font-serif);
-  font-size: 21px;
-  color: #3b2819;
-  font-weight: 600;
-  margin-bottom: 4px;
+
+.ceremony-shimmer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b8860b, #ffd700, #ffecb3, #ffd700, #b8860b);
+  background-size: 200% 100%;
+  animation: goldShimmerBar 3.5s linear infinite;
 }
-.ceremony-card-datetime {
-  font-size: 12.5px;
-  color: var(--gold-dark);
-  font-weight: 600;
-  margin-bottom: 8px;
+
+@keyframes goldShimmerBar {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
-.ceremony-card-venue {
+
+.ceremony-card-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ceremony-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #741224 0%, #4a1220 100%);
+  color: #fff3d1;
+  font-family: 'Cinzel', serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(116, 18, 36, 0.25);
+}
+
+.ceremony-emblem-icon {
   font-size: 13px;
-  color: #554433;
-  margin-bottom: 6px;
+  display: inline-block;
+  animation: floatCardEmblem 2.5s ease-in-out infinite;
 }
+
+@keyframes floatCardEmblem {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px) scale(1.1); }
+}
+
+.ceremony-accent-star {
+  font-size: 13px;
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.ceremony-card-name {
+  font-family: 'Cinzel', Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 6px 0 10px !important;
+  color: #3b0a14 !important;
+  background: linear-gradient(135deg, #741224 0%, #3b0a14 55%, #a67c1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
+}
+
+.ceremony-card-datetime {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #7a5410;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.ceremony-card-datetime .dot-sep {
+  opacity: 0.6;
+}
+
+.ceremony-card-venue {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #24130e;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.venue-pin-icon {
+  font-size: 14px;
+}
+
 .ceremony-card-dress {
   display: inline-block;
-  background: rgba(197, 155, 39, 0.12);
-  border: 1px solid rgba(197, 155, 39, 0.3);
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  color: #684d1c;
-  font-weight: 500;
-  margin-bottom: 8px;
+  background: #fbf0f2;
+  border: 1px solid #e8b6bf;
+  color: #6d1022;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
 }
+
 .ceremony-card-note {
-  font-family: var(--font-serif);
-  font-size: 12.5px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14.5px;
+  font-weight: 600;
   font-style: italic;
-  color: #726251;
-  line-height: 1.45;
-  margin-bottom: 12px;
+  color: #3d2319;
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
+
+.ceremony-card-footer {
+  margin-top: 4px;
+}
+
 .ceremony-card-map-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gold-dark);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
+  gap: 6px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
+  color: #ffffff !important;
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(170, 130, 10, 0.32);
+  transition: all 0.2s ease;
+}
+
+.ceremony-card-map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(170, 130, 10, 0.5);
+  background: linear-gradient(135deg, #e5c048 0%, #bb921b 100%);
 }
 
 /* ==========================================================
@@ -1774,18 +1871,41 @@ html, body {
 }
 .palace-illustration-wrap { width: 100%; margin-bottom: 16px; }
 .palace-img { width: 100%; height: auto; border-radius: 140px 140px 0 0; }
-.venue-badge-label { font-family: var(--font-display); font-size: 9px; letter-spacing: 2px; color: #9c8360; margin-bottom: 4px; }
-.venue-name { font-family: var(--font-serif); font-size: 23px; color: #3f311c; margin-bottom: 6px; }
-.venue-street, .venue-city { font-size: 12.5px; color: #635645; }
+.venue-badge-label { 
+  font-family: 'Cinzel', serif; 
+  font-size: 11px; 
+  font-weight: 700;
+  letter-spacing: 2.5px; 
+  color: #8b6716; 
+  margin-bottom: 6px; 
+  text-transform: uppercase;
+}
+.venue-name { 
+  font-family: 'Cinzel', serif !important; 
+  font-size: 24px !important; 
+  font-weight: 800 !important; 
+  color: #22120e !important; 
+  margin-bottom: 6px !important; 
+  letter-spacing: 0.5px;
+}
+.venue-street, .venue-city { 
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 15px !important; 
+  font-weight: 700 !important; 
+  color: #2b1710 !important; 
+  line-height: 1.45;
+}
 .venue-datetime-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  padding: 6px 14px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1.2px solid rgba(212, 175, 55, 0.45);
+  padding: 7px 16px;
   border-radius: var(--radius-pill);
-  font-size: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 12.5px;
+  font-weight: 700;
   color: #664d1f;
   margin: 14px 0 16px;
 }

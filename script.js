@@ -1280,12 +1280,38 @@ document.addEventListener('DOMContentLoaded', () => {
       directionsBtn.href = mapLink;
     }
 
-    // Render Sacred Ceremonies Timeline
+    // Render Sacred Ceremonies Timeline with Rich Animations & Royal Emblems
     if (timelineContainer && state.ceremonies) {
       timelineContainer.innerHTML = '';
-      state.ceremonies.forEach(c => {
+      
+      const ceremonyEmblems = [
+        { test: /sangeet/i, icon: '🪕', badge: 'MUSICAL GALA', color: 'sangeet-glow' },
+        { test: /baraat/i, icon: '🎺', badge: 'SHAHI PROCESSION', color: 'baraat-glow' },
+        { test: /phera|matrimony|wedding|shaadi|varmala/i, icon: '🔥', badge: 'SACRED VOWS', color: 'pheras-glow' },
+        { test: /reception|gala|banquet|party/i, icon: '🥂', badge: 'ROYAL CELEBRATION', color: 'reception-glow' },
+        { test: /mehendi|henna/i, icon: '🌿', badge: 'MEHENDI UTSAV', color: 'mehendi-glow' },
+        { test: /haldi/i, icon: '💛', badge: 'AUSPICIOUS RASAM', color: 'haldi-glow' },
+        { test: /cocktail/i, icon: '🍸', badge: 'SOIRÉE & DANCE', color: 'cocktail-glow' }
+      ];
+
+      state.ceremonies.forEach((c, idx) => {
         const card = document.createElement('div');
         card.className = 'ceremony-timeline-card';
+        
+        let emblem = '🌸';
+        let badgeType = 'ROYAL CEREMONY';
+        let glowClass = 'royal-glow';
+        
+        for (const item of ceremonyEmblems) {
+          if (item.test.test(c.name)) {
+            emblem = item.icon;
+            badgeType = item.badge;
+            glowClass = item.color;
+            break;
+          }
+        }
+        
+        card.classList.add(glowClass);
         
         let dateFmt = c.date || state.isoDate;
         try {
@@ -1295,20 +1321,35 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } catch (e) {}
 
-        const mapBtn = c.map_url ? `<a href="${c.map_url}" target="_blank" rel="noopener" class="ceremony-card-map-btn"><i data-lucide="map-pin" style="width:12px;height:12px;"></i> Directions ↗</a>` : '';
-        const dressPill = c.dress ? `<div class="ceremony-card-dress">👗 Dress: ${c.dress}</div>` : '';
+        const mapBtn = c.map_url ? `<a href="${c.map_url}" target="_blank" rel="noopener" class="ceremony-card-map-btn"><i data-lucide="map-pin" style="width:13px;height:13px;"></i> View Location ↗</a>` : '';
+        const dressPill = c.dress ? `<div class="ceremony-card-dress">👗 <b>Dress Code:</b> ${c.dress}</div>` : '';
         const noteText = c.note ? `<p class="ceremony-card-note">${c.note}</p>` : '';
 
         card.innerHTML = `
+          <div class="ceremony-shimmer-bar"></div>
+          <div class="ceremony-card-top-header">
+            <span class="ceremony-badge-tag"><span class="ceremony-emblem-icon">${emblem}</span> ${badgeType} · 0${idx + 1}</span>
+            <span class="ceremony-accent-star">✦</span>
+          </div>
           <h3 class="ceremony-card-name">${c.name}</h3>
-          <div class="ceremony-card-datetime">📅 ${dateFmt} · ⏰ ${c.time || state.time}</div>
-          <div class="ceremony-card-venue">📍 ${c.venue || state.venue}</div>
+          <div class="ceremony-card-datetime">
+            <span>📅 ${dateFmt}</span>
+            <span class="dot-sep">·</span>
+            <span>⏰ ${c.time || state.time}</span>
+          </div>
+          <div class="ceremony-card-venue">
+            <span class="venue-pin-icon">📍</span>
+            <span>${c.venue || state.venue}</span>
+          </div>
           ${dressPill}
           ${noteText}
-          ${mapBtn}
+          <div class="ceremony-card-footer">
+            ${mapBtn}
+          </div>
         `;
         timelineContainer.appendChild(card);
       });
+      if (window.lucide) window.lucide.createIcons();
     }
 
     // Quill names
@@ -1421,7 +1462,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoScrollRaf = null;
   let userInteractedTimeout = null;
   let hasAutoStarted = false;
-  const scrollSpeed = 0.95; // pixels per frame
+  let currentScrollY = 0;
+  const scrollSpeed = 0.85; // Butter-smooth cinematic glide
 
   function getScrollContainer() {
     const el = document.getElementById('invitationScrollArea');
@@ -1438,7 +1480,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if nearing the scratch stage while still unscratched -> pause gently so guest can scratch
     if (!scratchRevealed && scratchStage) {
       const stageRect = scratchStage.getBoundingClientRect();
-      if (stageRect.top < window.innerHeight * 0.5 && stageRect.bottom > window.innerHeight * 0.15) {
+      if (stageRect.top < window.innerHeight * 0.55 && stageRect.bottom > window.innerHeight * 0.15) {
         pauseAutoScrollTemporarily(6000);
         return;
       }
@@ -1446,18 +1488,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (container === window) {
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= maxScroll - 5) {
+      if (window.scrollY >= maxScroll - 6) {
         stopAutoScroll();
         return;
       }
-      window.scrollBy(0, scrollSpeed);
+      currentScrollY += scrollSpeed;
+      window.scrollTo(0, currentScrollY);
     } else {
       const maxScroll = container.scrollHeight - container.clientHeight;
-      if (container.scrollTop >= maxScroll - 5) {
+      if (container.scrollTop >= maxScroll - 6) {
         stopAutoScroll();
         return;
       }
-      container.scrollTop += scrollSpeed;
+      currentScrollY += scrollSpeed;
+      container.scrollTop = currentScrollY;
     }
     autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
   }
@@ -1465,6 +1509,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function startAutoScroll() {
     if (autoScrollActive) return;
     autoScrollActive = true;
+    const container = getScrollContainer();
+    if (container && container !== window) {
+      container.style.scrollBehavior = 'auto'; // Prevent CSS smooth-scroll fighting rAF
+      currentScrollY = container.scrollTop;
+    } else {
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.body.style.scrollBehavior = 'auto';
+      currentScrollY = window.scrollY;
+    }
     updateAutoScrollBtnUI();
     cancelAnimationFrame(autoScrollRaf);
     autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
@@ -1484,12 +1537,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function onUserScrollAction() {
+    const container = getScrollContainer();
+    if (container && container !== window) {
+      currentScrollY = container.scrollTop;
+    } else {
+      currentScrollY = window.scrollY;
+    }
+    pauseAutoScrollTemporarily(3500);
+  }
+
   function pauseAutoScrollTemporarily(delayMs = 3800) {
     if (!autoScrollActive) return;
     cancelAnimationFrame(autoScrollRaf);
     clearTimeout(userInteractedTimeout);
     userInteractedTimeout = setTimeout(() => {
       if (autoScrollActive) {
+        const container = getScrollContainer();
+        if (container && container !== window) {
+          currentScrollY = container.scrollTop;
+        } else {
+          currentScrollY = window.scrollY;
+        }
         autoScrollRaf = requestAnimationFrame(doAutoScrollStep);
       }
     }, delayMs);
@@ -1507,14 +1576,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) window.lucide.createIcons();
   }
 
-  // Hook touch & wheel to pause temporarily when user manually interacts
-  window.addEventListener('wheel', () => pauseAutoScrollTemporarily(), { passive: true });
-  window.addEventListener('touchstart', () => pauseAutoScrollTemporarily(), { passive: true });
+  // Hook touch & wheel to update current scroll position and pause smoothly
+  window.addEventListener('wheel', onUserScrollAction, { passive: true });
+  window.addEventListener('touchstart', onUserScrollAction, { passive: true });
 
   const scrollAreaEl = document.getElementById('invitationScrollArea');
   if (scrollAreaEl) {
-    scrollAreaEl.addEventListener('wheel', () => pauseAutoScrollTemporarily(), { passive: true });
-    scrollAreaEl.addEventListener('touchstart', () => pauseAutoScrollTemporarily(), { passive: true });
+    scrollAreaEl.addEventListener('wheel', onUserScrollAction, { passive: true });
+    scrollAreaEl.addEventListener('touchstart', onUserScrollAction, { passive: true });
   }
 
   // Auto start when user enters invitation
