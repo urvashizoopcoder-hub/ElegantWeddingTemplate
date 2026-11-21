@@ -113,6 +113,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const displayGrandTitle = document.getElementById('displayGrandTitle');
   const welcomeMessageText = document.getElementById('welcomeMessageText');
   const welcomeSignoff = document.getElementById('welcomeSignoff');
+  const sanctuaryMonogram = document.getElementById('sanctuaryMonogram');
+
+  // Section 3: Scratch-to-Reveal Card & 4 Heart Countdown Elements
+  const scratchStage = document.getElementById('scratchStage');
+  const scratchCanvas = document.getElementById('scratchCanvas');
+  const scratchRibbonOverlay = document.getElementById('scratchRibbonOverlay');
+  const scratchHint = document.getElementById('scratchHint');
+  const scratchSealMonogram = document.getElementById('scratchSealMonogram');
+  const scratchVenueName = document.getElementById('scratchVenueName');
+  const countDays = document.getElementById('countDays');
+  const countHours = document.getElementById('countHours');
+  const countMinutes = document.getElementById('countMinutes');
+  const countSeconds = document.getElementById('countSeconds');
+  const displayFooterDate = document.getElementById('displayFooterDate');
+  const displayFooterVenue = document.getElementById('displayFooterVenue');
 
   const displayFullDateLine = document.getElementById('displayFullDateLine');
   const displayDayName = document.getElementById('displayDayName');
@@ -488,6 +503,223 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
 
   /* ==========================================================
+     INTERACTIVE SCRATCH-TO-REVEAL SAVE THE DATE (IMAGE 3)
+     ========================================================== */
+  let isScratching = false;
+  let scratchRevealed = false;
+  let scratchStrokeCount = 0;
+
+  function initScratchCard() {
+    if (!scratchCanvas || !scratchStage) return;
+    const ctx = scratchCanvas.getContext('2d');
+    if (!ctx) return;
+
+    scratchRevealed = false;
+    scratchStrokeCount = 0;
+    scratchStage.classList.remove('scratched');
+    scratchCanvas.style.opacity = '1';
+    scratchCanvas.style.pointerEvents = 'auto';
+    if (scratchRibbonOverlay) {
+      scratchRibbonOverlay.style.opacity = '1';
+      scratchRibbonOverlay.style.transform = 'scale(1)';
+    }
+    if (scratchHint) {
+      scratchHint.innerHTML = '<span class="hand-icon">👆</span> Tap or scratch the card to reveal our date!';
+    }
+
+    const width = scratchCanvas.width || 310;
+    const height = scratchCanvas.height || 190;
+
+    // Draw luxury metallic gold / rose foil gradient
+    ctx.save();
+    const foilGrad = ctx.createLinearGradient(0, 0, width, height);
+    foilGrad.addColorStop(0.0, '#f9df90');
+    foilGrad.addColorStop(0.2, '#fdeeb3');
+    foilGrad.addColorStop(0.4, '#d4af37');
+    foilGrad.addColorStop(0.6, '#f7e7a9');
+    foilGrad.addColorStop(0.8, '#b8860b');
+    foilGrad.addColorStop(1.0, '#efd07b');
+    ctx.fillStyle = foilGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    // Subtle luxury diagonal stripe pattern
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+    ctx.lineWidth = 1.5;
+    for (let x = -height; x < width + height; x += 18) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x + height, height);
+      ctx.stroke();
+    }
+
+    // Shimmering gold sparkles
+    for (let i = 0; i < 40; i++) {
+      const sx = Math.random() * width;
+      const sy = Math.random() * height;
+      const sr = Math.random() * 2 + 0.5;
+      ctx.fillStyle = (i % 2 === 0) ? 'rgba(255, 255, 255, 0.85)' : 'rgba(184, 134, 11, 0.45)';
+      ctx.beginPath();
+      ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Border embossing
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(6, 6, width - 12, height - 12);
+    ctx.restore();
+
+    function revealScratchCard() {
+      if (scratchRevealed) return;
+      scratchRevealed = true;
+      scratchStage.classList.add('scratched');
+      scratchCanvas.style.transition = 'opacity 0.6s ease';
+      scratchCanvas.style.opacity = '0';
+      scratchCanvas.style.pointerEvents = 'none';
+
+      if (scratchRibbonOverlay) {
+        scratchRibbonOverlay.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        scratchRibbonOverlay.style.opacity = '0';
+        scratchRibbonOverlay.style.transform = 'scale(1.15)';
+      }
+
+      if (scratchHint) {
+        scratchHint.innerHTML = '✨ <strong style="color:var(--gold-accent)">Date Revealed!</strong> Save the sacred date 💍';
+      }
+
+      playGoldenChime();
+
+      if (window.confetti) {
+        window.confetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { y: 0.55 },
+          colors: ['#d4af37', '#ffd700', '#f472b6', '#ffffff']
+        });
+      }
+    }
+
+    function getCoords(e) {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const scaleX = scratchCanvas.width / rect.width;
+      const scaleY = scratchCanvas.height / rect.height;
+      let clientX, clientY;
+      if (e.touches && e.touches[0]) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      return {
+        x: (clientX - rect.left) * scaleX,
+        y: (clientY - rect.top) * scaleY
+      };
+    }
+
+    function scratchAt(pos) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      scratchStrokeCount++;
+      if (scratchStrokeCount > 15 && !scratchRevealed) {
+        revealScratchCard();
+      }
+    }
+
+    scratchCanvas.addEventListener('mousedown', (e) => {
+      isScratching = true;
+      scratchAt(getCoords(e));
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (isScratching && !scratchRevealed) scratchAt(getCoords(e));
+    });
+    window.addEventListener('mouseup', () => { isScratching = false; });
+
+    scratchCanvas.addEventListener('touchstart', (e) => {
+      isScratching = true;
+      scratchAt(getCoords(e));
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (isScratching && !scratchRevealed) scratchAt(getCoords(e));
+    }, { passive: true });
+    window.addEventListener('touchend', () => { isScratching = false; });
+
+    if (scratchRibbonOverlay) {
+      scratchRibbonOverlay.addEventListener('click', () => {
+        revealScratchCard();
+      });
+    }
+    scratchStage.addEventListener('click', (e) => {
+      if (!scratchRevealed) {
+        scratchStrokeCount += 6;
+        if (scratchStrokeCount >= 10 || e.target.closest('#scratchRibbonOverlay')) {
+          revealScratchCard();
+        }
+      }
+    });
+  }
+
+  /* ==========================================================
+     4 3D GLOSSY HEART LIVE COUNTDOWN TIMERS (IMAGE 3)
+     ========================================================== */
+  let countdownTimerId = null;
+
+  function updateHeartCountdown() {
+    if (!countDays || !countHours || !countMinutes || !countSeconds) return;
+
+    let targetTime = '19:00:00';
+    if (state.time) {
+      const match = state.time.match(/(\d{1,2}):(\d{2})/);
+      if (match) {
+        let hrs = parseInt(match[1], 10);
+        const mins = match[2];
+        if (state.time.toUpperCase().includes('PM') && hrs < 12) hrs += 12;
+        if (state.time.toUpperCase().includes('AM') && hrs === 12) hrs = 0;
+        targetTime = `${String(hrs).padStart(2, '0')}:${mins}:00`;
+      }
+    }
+
+    const iso = state.isoDate || '2027-11-25';
+    let target = new Date(`${iso}T${targetTime}`);
+    if (isNaN(target.getTime())) {
+      target = new Date('2027-11-25T19:00:00');
+    }
+
+    const now = new Date();
+    const diff = target.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      countDays.textContent = '00';
+      countHours.textContent = '00';
+      countMinutes.textContent = '00';
+      countSeconds.textContent = '00';
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    countDays.textContent = String(days).padStart(2, '0');
+    countHours.textContent = String(hours).padStart(2, '0');
+    countMinutes.textContent = String(minutes).padStart(2, '0');
+    countSeconds.textContent = String(seconds).padStart(2, '0');
+  }
+
+  function startHeartCountdown() {
+    if (countdownTimerId) clearInterval(countdownTimerId);
+    updateHeartCountdown();
+    countdownTimerId = setInterval(updateHeartCountdown, 1000);
+  }
+
+  /* ==========================================================
      ADD TO CALENDAR (.ICS)
      ========================================================== */
   if (addToCalendarBtn) {
@@ -645,6 +877,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroBrideParents) heroBrideParents.textContent = state.bride_parents || '';
     if (displayGrandTitle) displayGrandTitle.textContent = state.grandTitle;
 
+    // Royal Sanctuary Monogram (Fills top canopy void)
+    if (sanctuaryMonogram) {
+      const gInit = state.groom ? state.groom.trim()[0] : 'R';
+      const bInit = state.bride ? state.bride.trim()[0] : 'S';
+      sanctuaryMonogram.textContent = `${gInit} & ${bInit}`;
+    }
+
     // Welcome Letter
     if (welcomeMessageText) {
       welcomeMessageText.innerHTML = `We are honored to welcome you to the Wedding ceremony of <strong>${state.groom} &amp; ${state.bride}</strong>. As they begin their journey together in faith and love, we thank you for being part of this blessed occasion 🤍`;
@@ -653,10 +892,39 @@ document.addEventListener('DOMContentLoaded', () => {
       welcomeSignoff.textContent = `With love & blessings, The ${state.groom_full.split(' ').pop()} & ${state.bride_full.split(' ').pop()} Families`;
     }
 
-    // Save the Date Arched Card
+    // Save the Date / Scratch Card Revealed Dates
     if (displayFullDateLine) displayFullDateLine.textContent = `${state.monthYear.split(' ')[0]} ${state.dateNum}, ${state.monthYear.split(' ')[1] || '2027'}`;
     if (displayDayName) displayDayName.textContent = state.dayName;
     if (displayEventTime) displayEventTime.textContent = state.time;
+
+    // Section 3: Scratch Ribbon Monogram & Footer Meta (Matching Image 3)
+    if (scratchSealMonogram) {
+      const gInit = state.groom ? state.groom.trim()[0] : 'R';
+      const bInit = state.bride ? state.bride.trim()[0] : 'S';
+      scratchSealMonogram.textContent = `${gInit} & ${bInit}`;
+    }
+    if (scratchVenueName) {
+      scratchVenueName.textContent = state.venue;
+    }
+    if (displayFooterDate) {
+      const monthShort = state.monthYear ? state.monthYear.split(' ')[0].substring(0, 3) : 'Nov';
+      const year = state.monthYear && state.monthYear.split(' ')[1] ? state.monthYear.split(' ')[1] : '2027';
+      const dayNum = parseInt(state.dateNum, 10) || 25;
+      const nth = (d) => {
+        if (d > 3 && d < 21) return 'th';
+        switch (d % 10) {
+          case 1: return 'st';
+          case 2: return 'nd';
+          case 3: return 'rd';
+          default: return 'th';
+        }
+      };
+      displayFooterDate.textContent = `${state.dayName || 'Thursday'} | ${dayNum}${nth(dayNum)} ${monthShort} ${year}`;
+    }
+    if (displayFooterVenue) {
+      displayFooterVenue.textContent = state.venue;
+    }
+    updateHeartCountdown();
 
     // Venue Sanctuary
     if (displayVenueName) displayVenueName.textContent = state.venue;
@@ -916,5 +1184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init
   loadUrlParameters();
   renderAllTemplateData();
+  initScratchCard();
+  startHeartCountdown();
   initAmbientParticles();
 });

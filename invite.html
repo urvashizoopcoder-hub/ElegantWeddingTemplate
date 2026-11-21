@@ -131,14 +131,21 @@
           <!-- 3D Perspective Door Stage -->
           <div class="doors-perspective-stage" id="doorsStage">
             
-            <!-- INNER SANCTUARY (Courtyard Fountain, Silk Drapes & Hero Announcement) -->
+            <!-- INNER SANCTUARY (Royal Palace Arch Alcove, Fountain, Silk Drapes & Hero Announcement) -->
             <div class="inner-sanctuary" id="innerSanctuary">
               
-              <!-- Royal Pleated Swaged Drapes Hanging at Top -->
+              <!-- Royal Pleated Swaged Drapes & Golden Fringe Hanging at Top -->
               <div class="royal-drapes-canopy">
                 <div class="drape-swag drape-left"></div>
-                <div class="drape-swag drape-center"></div>
+                <div class="drape-swag drape-center">
+                  <div class="canopy-gold-fringe"></div>
+                </div>
                 <div class="drape-swag drape-right"></div>
+              </div>
+
+              <!-- Top Hanging Chandelier Festoon (Eliminates empty void) -->
+              <div class="canopy-chandelier-festoon">
+                <span class="chandelier-glow">🕯️ ❦ 🕯️</span>
               </div>
 
               <!-- Sanctuary Golden Glow -->
@@ -147,7 +154,14 @@
               <!-- Hero Wedding Content inside Sanctuary -->
               <div class="courtyard-hero-content">
                 
-                <div class="heart-symbol">🖤</div>
+                <!-- Ornate Royal Palace Crest & Monogram (Fills sanctuary void) -->
+                <div class="royal-sanctuary-crest">
+                  <span class="sanctuary-crown">👑</span>
+                  <div class="sanctuary-crest-monogram" id="sanctuaryMonogram">R &amp; S</div>
+                  <div class="sanctuary-garland-ornament">✦ ❦ ✦</div>
+                </div>
+
+                <div class="heart-symbol">❦</div>
                 <div class="sub-lead-text">We're getting married</div>
                 <div class="mini-ornament-line">─ ❦ ─</div>
 
@@ -259,23 +273,128 @@
         </section>
 
         <!-- ==============================================
-             SECTION 3: ARCHED "SAVE THE DATE" & PHOTO CAROUSEL
+             SECTION 3: SCRATCH-TO-REVEAL "SAVE THE DATE" & HEART COUNTDOWN (MATCHING USER REFERENCE)
              ============================================== -->
         <section class="section-save-the-date" id="dateSection">
-          <div class="arched-date-card">
+          <div class="save-the-date-card-wrapper">
             
-            <div class="date-header-label">A DATE TO TREASURE</div>
-            <h2 class="arched-date-main" id="displayFullDateLine">November 25, 2027</h2>
-            <div class="date-day-time-badge" id="displayTimeLine">
-              <span id="displayDayName">Thursday</span> · <span id="displayEventTime">7:00 PM</span>
+            <!-- Top Garland Beads / Ribbon Border (From Reference Image) -->
+            <div class="garland-beads-border top-beads">
+              <span class="garland-tape left-tape"></span>
+              <div class="beads-row">
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span>
+              </div>
+              <span class="garland-tape right-tape"></span>
             </div>
 
-            <!-- Save the Date Button (Calendar Export) -->
-            <div class="save-btn-wrap">
-              <button id="addToCalendarBtn" class="zareqia-pill-btn">
-                <i data-lucide="calendar"></i>
-                <span>SAVE THE DATE</span>
-              </button>
+            <!-- Header Titles -->
+            <div class="date-section-header">
+              <div class="script-accent-sub">A little surprise</div>
+              <h2 class="section-main-title">Save The Date</h2>
+              <p class="scratch-instruction-text" id="scratchHint">
+                <span class="hand-icon">👆</span> Tap or scratch the card to reveal our date!
+              </p>
+            </div>
+
+            <!-- Scratch-to-Reveal Card Stage -->
+            <div class="scratch-card-stage" id="scratchStage" title="Tap or drag to scratch and reveal date">
+              <!-- Underneath Concealed Wedding Date Card -->
+              <div class="underneath-date-card" id="revealedDateCard">
+                <div class="sparkle-burst-icon">✨ 💍 ✨</div>
+                <div class="revealed-lead">WE ARE CELEBRATING</div>
+                <h3 class="revealed-date-title" id="displayFullDateLine">November 25, 2027</h3>
+                <div class="revealed-day-time" id="displayTimeLine">
+                  <span id="displayDayName">Thursday</span> · <span id="displayEventTime">7:00 PM</span>
+                </div>
+                <div class="revealed-venue-micro" id="scratchVenueName">The Taj Mahal Palace Ballroom, Mumbai</div>
+              </div>
+
+              <!-- Interactive Scratch Foil Canvas Layer -->
+              <canvas class="scratch-foil-canvas" id="scratchCanvas" width="310" height="190"></canvas>
+
+              <!-- Luxury Ribbon Bow & Wax Seal Overlay (Matches User Reference Image) -->
+              <div class="scratch-ribbon-overlay" id="scratchRibbonOverlay">
+                <div class="ribbon-bow-wings">
+                  <div class="bow-wing wing-left"></div>
+                  <div class="bow-wing wing-right"></div>
+                  <div class="ribbon-tail tail-left"></div>
+                  <div class="ribbon-tail tail-right"></div>
+                  <div class="bow-center-seal">
+                    <span class="bow-seal-monogram" id="scratchSealMonogram">R &amp; S</span>
+                  </div>
+                </div>
+                <div class="the-big-day-script">The Big Day</div>
+                <div class="scratch-card-prompt">✨ Scratch or Tap to Reveal ✨</div>
+              </div>
+            </div>
+
+            <!-- "The start of a beautiful journey..." Subtitle -->
+            <div class="journey-subtitle">
+              The start of a beautiful journey…
+            </div>
+
+            <!-- 4 3D GLOSSY HEART LIVE COUNTDOWN TIMERS (From User Reference Image) -->
+            <div class="hearts-countdown-grid">
+              <!-- Days -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countDays">00</span>
+                    <span class="heart-label">DAYS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countHours">00</span>
+                    <span class="heart-label">HOURS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Minutes -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countMinutes">00</span>
+                    <span class="heart-label">MINUTES</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seconds -->
+              <div class="heart-timer-badge">
+                <div class="heart-shape-wrap">
+                  <div class="heart-inner-glow"></div>
+                  <div class="heart-content">
+                    <span class="heart-num" id="countSeconds">00</span>
+                    <span class="heart-label">SECONDS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Date & Sanctuary Info Line below Hearts -->
+            <div class="date-footer-meta">
+              <div class="footer-day-date" id="displayFooterDate">Thursday | 25th Nov 2027</div>
+              <div class="footer-venue-line" id="displayFooterVenue">The Taj Mahal Palace Ballroom, Mumbai</div>
+              
+              <!-- + Add to Calendar Pill Button -->
+              <div class="save-btn-wrap">
+                <button id="addToCalendarBtn" class="pill-add-calendar-btn">
+                  <span>+ Add to Calendar</span>
+                </button>
+              </div>
             </div>
 
             <!-- Curated Wedding Memories / Floral Decor Carousel -->
@@ -304,6 +423,19 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
+            </div>
+
+            <!-- Bottom Garland Beads / Ribbon Border (From Reference Image) -->
+            <div class="garland-beads-border bottom-beads">
+              <span class="garland-tape left-tape"></span>
+              <div class="beads-row">
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span><span class="bead sage"></span>
+                <span class="bead gold"></span><span class="bead pink"></span>
+              </div>
+              <span class="garland-tape right-tape"></span>
             </div>
 
           </div>

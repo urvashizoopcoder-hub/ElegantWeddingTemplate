@@ -616,16 +616,21 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background: #fbf7f0;
+  justify-content: flex-start;
+  background-color: #fbf7f0;
   background-image: 
-    radial-gradient(circle at 50% 30%, rgba(255, 235, 175, 0.5) 0%, transparent 70%),
+    url('assets/portal_arch_clean.png'),
+    radial-gradient(circle at 50% 25%, rgba(255, 235, 175, 0.55) 0%, transparent 70%),
     linear-gradient(180deg, #fdfbf7 0%, #f6eee3 100%);
+  background-size: 100% auto, auto, auto;
+  background-position: center top;
+  background-repeat: no-repeat;
   z-index: 10;
   opacity: 0;
   transform: scale(0.97);
   transition: opacity 0.6s ease, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 20px 16px 10px;
+  padding: 16px 14px 10px;
+  overflow: hidden;
 }
 
 .section-hero-vault.doors-open .inner-sanctuary {
@@ -639,7 +644,7 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  height: 140px;
+  height: 125px;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -651,14 +656,36 @@ html, body {
   box-shadow: 0 10px 20px rgba(120, 80, 20, 0.25);
 }
 .drape-center {
+  position: relative;
   width: 60%;
-  height: 80px;
+  height: 75px;
   border-radius: 0 0 100px 100px;
   margin: 0 auto;
 }
+.canopy-gold-fringe {
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  right: 10%;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #d4af37 0px, #d4af37 4px, transparent 4px, transparent 8px);
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+.canopy-chandelier-festoon {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 17;
+  font-size: 16px;
+  color: var(--gold-accent);
+  letter-spacing: 6px;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+  pointer-events: none;
+}
 .drape-left, .drape-right {
   width: 25%;
-  height: 130px;
+  height: 120px;
 }
 .drape-left {
   border-radius: 0 0 70px 0;
@@ -673,12 +700,40 @@ html, body {
   z-index: 16;
   text-align: center;
   width: 100%;
-  margin-top: 65px;
+  margin-top: 36px;
+}
+.royal-sanctuary-crest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.sanctuary-crown {
+  font-size: 22px;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.5));
+  animation: floatSubtle 3s ease-in-out infinite;
+}
+.sanctuary-crest-monogram {
+  font-family: var(--font-script);
+  font-size: 28px;
+  font-weight: 700;
+  color: #8c683b;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+.sanctuary-garland-ornament {
+  font-size: 11px;
+  color: var(--gold-accent);
+  letter-spacing: 4px;
+  margin-top: 2px;
+  opacity: 0.85;
 }
 .heart-symbol {
   font-size: 16px;
   color: #3e2820;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .sub-lead-text {
   font-family: var(--font-serif);
@@ -1014,42 +1069,396 @@ html, body {
 }
 
 /* ==========================================================
-   SECTION 3: ARCHED SAVE THE DATE & CAROUSEL
+   SECTION 3: SCRATCH CARD & 4 HEART COUNTDOWNS (IMAGE 3)
    ========================================================== */
 .section-save-the-date {
   padding: 24px 16px 36px;
   background: #fbf7f0;
   text-align: center;
 }
-.arched-date-card {
-  max-width: 370px;
+.save-the-date-card-wrapper {
+  max-width: 375px;
   margin: 0 auto;
-  background: #fdfbf7;
-  border: 1px solid rgba(197, 155, 39, 0.35);
-  border-radius: 160px 160px 20px 20px;
-  padding: 36px 16px 24px;
-  box-shadow: 0 12px 35px rgba(120, 90, 30, 0.1);
+  background: #fdfaf6;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 28px;
+  padding: 16px 14px 28px;
+  box-shadow: 0 16px 45px rgba(120, 90, 30, 0.12);
+  position: relative;
+  overflow: hidden;
 }
-.date-header-label {
+
+/* Garland Beads Border (Matching Image 3) */
+.garland-beads-border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  padding: 4px 0 10px;
+}
+.garland-beads-border.bottom-beads {
+  margin-top: 20px;
+  padding: 10px 0 2px;
+}
+.beads-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bead {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.bead.gold { background: #d4af37; }
+.bead.pink { background: #f472b6; }
+.bead.sage { background: #86efac; }
+.garland-tape {
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 22px;
+  background: linear-gradient(135deg, #eab308, #ca8a04);
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+}
+.garland-tape.left-tape { left: 14px; }
+.garland-tape.right-tape { right: 14px; }
+
+/* Header */
+.date-section-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.script-accent-sub {
+  font-family: var(--font-script);
+  font-size: 26px;
+  color: #a27b40;
+  line-height: 1.1;
+}
+.section-main-title {
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size: 24px;
+  color: #3b2c1d;
+  letter-spacing: 2px;
+  margin: 2px 0 4px;
+}
+.scratch-instruction-text {
+  font-size: 11.5px;
   color: #8c7657;
+  letter-spacing: 0.5px;
+}
+.scratch-instruction-text .hand-icon {
+  display: inline-block;
+  animation: bounceHand 1.5s infinite;
+}
+@keyframes bounceHand {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Scratch Card Stage */
+.scratch-card-stage {
+  position: relative;
+  width: 100%;
+  max-width: 310px;
+  height: 190px;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+.underneath-date-card {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #fffdf9 0%, #f7eedc 100%);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  z-index: 1;
+}
+.sparkle-burst-icon {
+  font-size: 18px;
+  color: var(--gold-accent);
+  margin-bottom: 2px;
+}
+.revealed-lead {
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  letter-spacing: 2.5px;
+  color: #927546;
   text-transform: uppercase;
-  margin-bottom: 6px;
 }
-.arched-date-main {
+.revealed-date-title {
   font-family: var(--font-serif);
-  font-size: 28px;
-  color: #3f2f1e;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #431b23;
+  margin: 3px 0;
+  line-height: 1.1;
 }
-.date-day-time-badge {
+.revealed-day-time {
   font-size: 13px;
   color: #7b6238;
   font-weight: 500;
-  margin-bottom: 16px;
+}
+.revealed-venue-micro {
+  font-size: 11px;
+  color: #9c8466;
+  margin-top: 6px;
+  max-width: 250px;
+}
+
+/* Scratch Foil Canvas */
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transition: opacity 0.4s ease;
+}
+
+/* Ribbon Bow & Wax Seal Overlay */
+.scratch-ribbon-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255, 235, 175, 0.15) 0%, transparent 70%);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scratch-card-stage.scratched .scratch-ribbon-overlay {
+  opacity: 0;
+  transform: scale(1.15);
+}
+.ribbon-bow-wings {
+  position: relative;
+  width: 130px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bow-wing {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 30% 30%, #f472b6, #be185d);
+  box-shadow: 0 4px 12px rgba(190, 24, 93, 0.35);
+}
+.wing-left { left: 14px; transform: rotate(-25deg); }
+.wing-right { right: 14px; transform: rotate(25deg); }
+.ribbon-tail {
+  position: absolute;
+  width: 14px;
+  height: 32px;
+  background: linear-gradient(to bottom, #be185d, #881337);
+  bottom: -12px;
+}
+.tail-left { left: 42px; transform: rotate(18deg); border-radius: 0 0 4px 4px; }
+.tail-right { right: 42px; transform: rotate(-18deg); border-radius: 0 0 4px 4px; }
+.bow-center-seal {
+  position: relative;
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fef08a, #ca8a04, #854d0e);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.bow-seal-monogram {
+  font-family: var(--font-script);
+  font-size: 19px;
+  font-weight: 700;
+  color: #422006;
+}
+.the-big-day-script {
+  font-family: var(--font-script);
+  font-size: 26px;
+  color: #451a03;
+  margin-top: 10px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+.scratch-card-prompt {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #831843;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* "The start of a beautiful journey..." */
+.journey-subtitle {
+  font-family: var(--font-script);
+  font-size: 23px;
+  color: #8c683b;
+  text-align: center;
+  margin: 6px 0 14px;
+}
+
+/* 4 3D GLOSSY HEART BADGES (MATCHING REFERENCE IMAGE 3) */
+.hearts-countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto 18px;
+  justify-items: center;
+}
+.heart-timer-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.heart-shape-wrap {
+  position: relative;
+  width: 96px;
+  height: 88px;
+  background: radial-gradient(circle at 35% 30%, #f472b6 0%, #db2777 55%, #9d174d 100%);
+  -webkit-clip-path: path('M 48,82 C 48,82 10,55 10,30 C 10,14 23,8 35,8 C 42,8 46,12 48,16 C 50,12 54,8 61,8 C 73,8 86,14 86,30 C 86,55 48,82 48,82 Z');
+  clip-path: path('M 48,82 C 48,82 10,55 10,30 C 10,14 23,8 35,8 C 42,8 46,12 48,16 C 50,12 54,8 61,8 C 73,8 86,14 86,30 C 86,55 48,82 48,82 Z');
+  box-shadow: 
+    0 10px 25px rgba(157, 23, 77, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0 8px 16px rgba(157, 23, 77, 0.35));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6px;
+  transition: transform 0.25s ease;
+}
+/* Delicate Golden Border Rim around 3D Hearts (Image 3) */
+.heart-shape-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  -webkit-clip-path: path('M 47,80 C 47,80 11,54 11,30 C 11,15 24,9 35,9 C 42,9 46,13 47,17 C 49,13 53,9 60,9 C 71,9 84,15 84,30 C 84,54 47,80 47,80 Z');
+  clip-path: path('M 47,80 C 47,80 11,54 11,30 C 11,15 24,9 35,9 C 42,9 46,13 47,17 C 49,13 53,9 60,9 C 71,9 84,15 84,30 C 84,54 47,80 47,80 Z');
+  border: 1.5px solid rgba(254, 240, 138, 0.75);
+  pointer-events: none;
+}
+.heart-timer-badge:hover .heart-shape-wrap {
+  transform: scale(1.06) translateY(-2px);
+}
+.heart-inner-glow {
+  position: absolute;
+  top: 12px;
+  left: 24px;
+  width: 22px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+.heart-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+.heart-num {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.5px;
+}
+.heart-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  margin-top: 3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Date Footer Meta & Add to Calendar */
+.date-footer-meta {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer-day-date {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b3621;
+  letter-spacing: 1px;
+}
+.footer-venue-line {
+  font-size: 12px;
+  color: #7d6b56;
+  margin: 3px 0 14px;
+}
+.pill-add-calendar-btn {
+  background: #ffffff;
+  border: 1.5px solid #d4af37;
+  border-radius: var(--radius-pill);
+  padding: 8px 22px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #78350f;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(180, 130, 30, 0.15);
+  transition: all 0.2s ease;
+}
+.pill-add-calendar-btn:hover {
+  background: #fef08a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(180, 130, 30, 0.25);
+}
+
+/* Color Palette Adaptation for 4 Hearts Countdown */
+.theme-crimson-gold .heart-shape-wrap {
+  background: radial-gradient(circle at 35% 30%, #fb7185 0%, #e11d48 55%, #881337 100%);
+  box-shadow: 0 10px 25px rgba(136, 19, 55, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+}
+.theme-silver-diamond .heart-shape-wrap {
+  background: radial-gradient(circle at 35% 30%, #f1f5f9 0%, #94a3b8 55%, #334155 100%);
+  box-shadow: 0 10px 25px rgba(51, 65, 85, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+}
+.theme-emerald-gold .heart-shape-wrap {
+  background: radial-gradient(circle at 35% 30%, #6ee7b7 0%, #059669 55%, #064e3b 100%);
+  box-shadow: 0 10px 25px rgba(6, 78, 59, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+}
+.theme-wine-rosegold .heart-shape-wrap {
+  background: radial-gradient(circle at 35% 30%, #f472b6 0%, #db2777 55%, #701a75 100%);
+  box-shadow: 0 10px 25px rgba(112, 26, 117, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(0, 0, 0, 0.4);
 }
 
 .zareqia-pill-btn {

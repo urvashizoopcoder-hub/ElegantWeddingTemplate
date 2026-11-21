@@ -3,3 +3,5 @@ video_frames/
 new_video_frames/
 *.mp4
 *.tmp
+assets_*
+editor_source.html
